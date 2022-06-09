@@ -1,4 +1,14 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using SerenUP.WebApp.Data;
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("SerenUPWebAppContextConnection") ?? throw new InvalidOperationException("Connection string 'SerenUPWebAppContextConnection' not found.");
+
+builder.Services.AddDbContext<SerenUPWebAppContext>(options =>
+    options.UseSqlServer(connectionString));;
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<SerenUPWebAppContext>();;
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -17,6 +27,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
 
