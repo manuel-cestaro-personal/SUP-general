@@ -7,11 +7,14 @@ var connectionString = builder.Configuration.GetConnectionString("SerenUPWebAppC
 var services = builder.Services;
 var configuration = builder.Configuration;
 
+//services.AddDbContext<SerenUPWebAppContext>();
 builder.Services.AddDbContext<SerenUPWebAppContext>(options =>
     options.UseSqlServer(connectionString));;
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<SerenUPWebAppContext>();;
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<SerenUPWebAppContext>()
+    .AddDefaultUI()
+    .AddDefaultTokenProviders();;
 
 //Google authentication
 services.AddAuthentication().AddGoogle(googleOptions =>
@@ -26,6 +29,17 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
     facebookOptions.AppId = configuration["Authentication:Facebook:AppId"];
     facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
 });
+
+// add service for personalize database 
+/*services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        .AddEntityFrameworkStores<SerenUPWebAppContext>();*/
+/*services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
+        .AddEntityFrameworkStores<SerenUPWebAppContext>()
+        .AddDefaultUI()
+        .AddDefaultTokenProviders();*/
+
+
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
