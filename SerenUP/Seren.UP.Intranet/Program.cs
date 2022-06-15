@@ -7,8 +7,8 @@ var connectionString = builder.Configuration.GetConnectionString("SerenUPIntrane
 builder.Services.AddDbContext<SerenUPIntranetContext>(options =>
     options.UseSqlServer(connectionString));;
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<SerenUPIntranetContext>();;
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<SerenUPIntranetContext>().AddDefaultUI().AddDefaultTokenProviders(); ;
 
 // Add services to the container.
 builder.Services.AddRazorPages();
