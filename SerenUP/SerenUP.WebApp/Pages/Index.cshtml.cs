@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 
 namespace SerenUP.WebApp.Pages
 {
@@ -16,5 +17,7 @@ namespace SerenUP.WebApp.Pages
         {
 
         }
+
+
     }
 }
