@@ -19,34 +19,35 @@ namespace SerenUP.Infrastructure.Data
             _connectionstring = configuration.GetConnectionString("SerenUPIntranetContextConnection");
         }
 
-        public IEnumerable<Order> GetAll()
+        public async Task<IEnumerable<Order>> GetAll()
         {
             const string query = @"
 SELECT
-OrderAddress as OrderAddress
-Date as Date
+OrderAddress as OrderAddress,
+Date as Date,
 OrderNumber as OrderNumber
 FROM Order;";
             using var connection = new MySqlConnection(_connectionstring);
-            return connection.Query<Order>(query);
+            return await connection.QueryAsync<Order>(query);
         }
 
-        public Order GetById(Guid id)
+        public async Task<Order> GetById(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public void Insert(Order model)
+        public async Task Insert(Order model)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Order model)
+        public async Task Update(Order model)
         {
             throw new NotImplementedException();
         }
-        public void Delete(Guid id)
+        public async Task Delete(Guid id)
         {
+            throw new NotImplementedException();
         }
     }
 }

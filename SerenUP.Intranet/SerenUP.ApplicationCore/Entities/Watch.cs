@@ -5,6 +5,7 @@ namespace SerenUP.ApplicationCore.Entitiess
 {
     public class Watch : Entity<Guid>
     {
+        public string Model { get; set; }
         public decimal Price { get; set; }
         public string MacAddress { get; set; }
         public string SerialNumber { get; set; }

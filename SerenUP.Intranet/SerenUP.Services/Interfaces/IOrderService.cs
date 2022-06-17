@@ -9,7 +9,7 @@ namespace SerenUP.Services.Interfaces
 {
     public interface IOrderService
     {
-        IEnumerable<Order> GetAllOrder();
+        Task<IEnumerable<Order>> GetAllOrder();
 
     }
 }

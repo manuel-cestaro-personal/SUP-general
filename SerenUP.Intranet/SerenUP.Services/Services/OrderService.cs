@@ -18,9 +18,9 @@ namespace SerenUP.Services.Services
             _orderRepository = orderRepository;
         }
 
-        public IEnumerable<Order> GetAllOrder()
+        public async Task<IEnumerable<Order>> GetAllOrder()
         {
-            return _orderRepository.GetAll();
+            return await _orderRepository.GetAll();
         }
     }
 }
