@@ -8,14 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("SerenUPIntranetContextConnection") ?? throw new InvalidOperationException("Connection string 'SerenUPIntranetContextConnection' not found.");
 
 builder.Services.AddDbContext<SerenUPIntranetContext>(options =>
-    options.UseSqlServer(connectionString)); ;
+    options.UseSqlServer(connectionString));;
 
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<SerenUPIntranetContext>().AddDefaultUI().AddDefaultTokenProviders(); ;
+    .AddEntityFrameworkStores<SerenUPIntranetContext>()
+    .AddDefaultUI()
+    .AddDefaultTokenProviders(); ;
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<IOrderService, OrderService>();
+//builder.Services.AddSingleton<IOrderService, OrderService>();
 
 var app = builder.Build();
 
