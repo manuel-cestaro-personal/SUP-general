@@ -10,7 +10,16 @@ var connectionString = builder.Configuration.GetConnectionString("SerenUPIntrane
 builder.Services.AddDbContext<SerenUPIntranetContext>(options =>
     options.UseSqlServer(connectionString));;
 
-builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequiredLength = 10;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireDigit = false;
+})
+    .AddRoles<ApplicationRole>()
     .AddEntityFrameworkStores<SerenUPIntranetContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders(); ;
