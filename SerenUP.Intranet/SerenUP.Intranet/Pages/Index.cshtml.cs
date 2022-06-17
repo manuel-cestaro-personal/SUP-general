@@ -12,9 +12,17 @@ namespace SerenUP.Intranet.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            /*if (User.Identity.IsAuthenticated)
+            {
+                return Page();
+            }
+            else
+            {
+                return RedirectToPage("/Account/Login", new { area = "Identity" });
+            }*/
+            return Page();
         }
     }
 }
