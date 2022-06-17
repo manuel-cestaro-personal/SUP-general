@@ -59,6 +59,22 @@ namespace SerenUP.Intranet.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Required]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+            [Display(Name = "Name")]
+            public string Name { get; set; }
+            [Required]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+            [Display(Name = "Surname")]
+            public string Surname { get; set; }
+
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+            [Display(Name = "City")]
+            public string City { get; set; }
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+            [Display(Name = "Address")]
+            public string Address { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -70,7 +86,11 @@ namespace SerenUP.Intranet.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                Address = user.Address,
+                City = user.City,
+                Name = user.Name,
+                Surname = user.Surname
             };
         }
 
@@ -101,12 +121,24 @@ namespace SerenUP.Intranet.Areas.Identity.Pages.Account.Manage
             }
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
+            if (Input.PhoneNumber != phoneNumber || Input.Address != user.Address || Input.City != user.City || Input.Name != user.Name || Input.Surname != user.Surname)
             {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+                /*var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
                     StatusMessage = "Unexpected error when trying to set phone number.";
+                    return RedirectToPage();
+                }*/
+                var userChange = user;
+                userChange.PhoneNumber = phoneNumber;
+                userChange.Address = Input.Address;
+                userChange.City = Input.City;
+                userChange.Name = Input.Name;
+                userChange.Surname = Input.Surname;
+                var tryUpdate = await _userManager.UpdateAsync(userChange);
+                if (!tryUpdate.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to update your data.";
                     return RedirectToPage();
                 }
             }
