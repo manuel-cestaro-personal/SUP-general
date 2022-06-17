@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyVersion>1.0.0.9</AssemblyVersion>
+    <FileVersion>1.0.0.9</FileVersion>
+    <UserSecretsId>bb6783e7-6c33-4faf-8550-3a036383ca24</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SerenUP.ApplicationCore\SerenUP.ApplicationCore.csproj" />
+    <ProjectReference Include="..\SerenUP.Infrastructure\SerenUP.Infrastructure.csproj" />
+    <ProjectReference Include="..\SerenUP.Services\SerenUP.Services.csproj" />
+  </ItemGroup>
+
+</Project>
