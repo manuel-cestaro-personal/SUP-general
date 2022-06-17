@@ -10,7 +10,6 @@ namespace SerenUP.ApplicationCore.Entitiess
         public string SerialNumber { get; set; }
         public string ActivationKey { get; set; }
         public string Color { get; set; }
-        public string Size { get; set; }
 
     }
 }
