@@ -11,10 +11,19 @@ var configuration = builder.Configuration;
 builder.Services.AddDbContext<SerenUPWebAppContext>(options =>
     options.UseSqlServer(connectionString));;
 
-builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequiredLength = 10;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireDigit = false;
+})
+    .AddRoles<ApplicationRole>()
     .AddEntityFrameworkStores<SerenUPWebAppContext>()
     .AddDefaultUI()
-    .AddDefaultTokenProviders();;
+    .AddDefaultTokenProviders(); ;
 
 //Google authentication
 services.AddAuthentication().AddGoogle(googleOptions =>
