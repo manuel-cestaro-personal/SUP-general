@@ -2,7 +2,7 @@
 
 namespace SerenUP.ApplicationCore.Interfaces
 {
-    public interface IOrderRepository <TEntity, TPrimaryKey> where TEntity : Entity<TPrimaryKey>
+    public interface IRepository <TEntity, TPrimaryKey> where TEntity : Entity<TPrimaryKey>
     {
         Task<IEnumerable<TEntity>> GetAll ();
         Task<TEntity> GetById (TPrimaryKey id);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SerenUP.ApplicationCore.Interfaces
 {
-    public interface IOrderRepository : IOrderRepository<Order, Guid>
+    public interface IOrderRepository : IRepository<Order, Guid>
     {
     }
 }
