@@ -11,7 +11,7 @@ namespace SerenUP.ApplicationCore.Entitiess
         public decimal Price { get; set; }
         public string MacAddress { get; set; }
         public string SerialNumber { get; set; }
-        public string ActivationKey { get; set; }
+        public Guid ActivationKey { get; set; }
         public string Color { get; set; }
 
     }
