@@ -1,6 +1,6 @@
 ﻿using Dapper;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
 using SerenUP.ApplicationCore.Entitiess;
 using SerenUP.ApplicationCore.Interfaces;
 using System;
@@ -16,7 +16,7 @@ namespace SerenUP.Infrastructure.Data
         private readonly string _connectionstring;
         public WatchRepository(IConfiguration configuration)
         {
-            _connectionstring = configuration.GetConnectionString("SerenUpDB");
+            _connectionstring = configuration.GetConnectionString("SerenUPWebConnection");
         }
 
         public async Task<IEnumerable<Watch>> GetAll()
@@ -27,7 +27,7 @@ Model as Model,
 Price as Price,
 Color as Color
 FROM Watch;";
-            using var connection = new MySqlConnection(_connectionstring);
+            using var connection = new SqlConnection(_connectionstring);
             return await connection.QueryAsync<Watch>(query);
         }
 
@@ -40,7 +40,7 @@ Price as Price,
 Color as Color
 FROM Watch
 WHERE WatchId = @WatchId;";
-            using var connection = new MySqlConnection(_connectionstring);
+            using var connection = new SqlConnection(_connectionstring);
             return await connection.QueryFirstOrDefaultAsync<Watch>(query, new { WatchId = id });
         }
 
@@ -53,7 +53,7 @@ Price as Price,
 Color as Color
 FROM Watch
 WHERE Model = @Model && Color = @Color && OrderId IS NULL;";
-            using var connection = new MySqlConnection(_connectionstring);
+            using var connection = new SqlConnection(_connectionstring);
             return await connection.QueryAsync<Watch>(query, new {Model = Model , Color = Color });
         }
 
@@ -63,7 +63,7 @@ WHERE Model = @Model && Color = @Color && OrderId IS NULL;";
 INSERT INTO Watch (Mode, Price, Color)
 VALUES (@model, @Price, @Color)";
 
-            using var connection = new MySqlConnection(_connectionstring);
+            using var connection = new SqlConnection(_connectionstring);
             await connection.ExecuteAsync(query, model);
         }
 
@@ -75,7 +75,7 @@ VALUES (@model, @Price, @Color)";
         {
             const string query = "DELETE FROM Watch WHERE WatchId = @id";
 
-            using var connection = new MySqlConnection(_connectionstring);
+            using var connection = new SqlConnection(_connectionstring);
             await connection.ExecuteAsync(query, new { Id });
         }
     }
