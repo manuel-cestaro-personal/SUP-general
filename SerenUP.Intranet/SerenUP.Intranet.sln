@@ -5,13 +5,13 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerenUP.Intranet", "SerenUP.Intranet\SerenUP.Intranet.csproj", "{E672B3EB-C46D-4172-A580-81BDFCA87710}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerenUP.API", "SerenUP.API\SerenUP.API.csproj", "{0AB7D67D-7855-4124-8FA2-7205B471AECF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerenUP.ApplicationCore", "SerenUP.ApplicationCore\SerenUP.ApplicationCore.csproj", "{EBCFE3D2-0FBC-4050-BC8D-62C0017D2A08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerenUP.ApplicationCore", "SerenUP.ApplicationCore\SerenUP.ApplicationCore.csproj", "{EBCFE3D2-0FBC-4050-BC8D-62C0017D2A08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerenUP.Infrastructure", "SerenUP.Infrastructure\SerenUP.Infrastructure.csproj", "{79052D47-912F-4F06-8430-0A2F612CF292}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerenUP.Infrastructure", "SerenUP.Infrastructure\SerenUP.Infrastructure.csproj", "{79052D47-912F-4F06-8430-0A2F612CF292}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerenUP.Services", "SerenUP.Services\SerenUP.Services.csproj", "{5B765416-BF1D-4DEA-8415-2D3309D624A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerenUP.Services", "SerenUP.Services\SerenUP.Services.csproj", "{5B765416-BF1D-4DEA-8415-2D3309D624A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerenUP.ShopAPI", "SerenUP.ShopAPI\SerenUP.ShopAPI.csproj", "{ADC345B0-B7A7-41A1-910F-D3D8ECCA5386}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{E672B3EB-C46D-4172-A580-81BDFCA87710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E672B3EB-C46D-4172-A580-81BDFCA87710}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E672B3EB-C46D-4172-A580-81BDFCA87710}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0AB7D67D-7855-4124-8FA2-7205B471AECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AB7D67D-7855-4124-8FA2-7205B471AECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AB7D67D-7855-4124-8FA2-7205B471AECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AB7D67D-7855-4124-8FA2-7205B471AECF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBCFE3D2-0FBC-4050-BC8D-62C0017D2A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EBCFE3D2-0FBC-4050-BC8D-62C0017D2A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBCFE3D2-0FBC-4050-BC8D-62C0017D2A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{5B765416-BF1D-4DEA-8415-2D3309D624A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B765416-BF1D-4DEA-8415-2D3309D624A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B765416-BF1D-4DEA-8415-2D3309D624A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC345B0-B7A7-41A1-910F-D3D8ECCA5386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC345B0-B7A7-41A1-910F-D3D8ECCA5386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC345B0-B7A7-41A1-910F-D3D8ECCA5386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC345B0-B7A7-41A1-910F-D3D8ECCA5386}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,3 +1,8 @@
+using SerenUP.ApplicationCore.Interfaces;
+using SerenUP.Infrastructure.Data;
+using SerenUP.Services.Interfaces;
+using SerenUP.Services.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<IWatchService, WatchService>();
+builder.Services.AddSingleton<IWatchRepository, WatchRepository>();
 
 var app = builder.Build();
 
