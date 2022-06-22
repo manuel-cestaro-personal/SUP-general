@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <Folder Include="Pages\Managment\" />
+    <Folder Include="wwwroot\Pictures\Orologi\Silver\" />
   </ItemGroup>
 
 </Project>
