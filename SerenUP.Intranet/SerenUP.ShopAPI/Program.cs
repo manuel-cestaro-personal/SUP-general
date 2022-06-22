@@ -1,3 +1,5 @@
+using SerenUP.ApplicationCore.Interfaces;
+using SerenUP.Infrastructure.Data;
 using SerenUP.Services.Interfaces;
 using SerenUP.Services.Services;
 
@@ -10,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IWatchService, WatchService>();
+builder.Services.AddSingleton<IWatchRepository, WatchRepository>();
 
 var app = builder.Build();
 
