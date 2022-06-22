@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SerenUP.API\SerenUP.API.csproj" />
     <ProjectReference Include="..\SerenUP.ApplicationCore\SerenUP.ApplicationCore.csproj" />
     <ProjectReference Include="..\SerenUP.Infrastructure\SerenUP.Infrastructure.csproj" />
   </ItemGroup>
