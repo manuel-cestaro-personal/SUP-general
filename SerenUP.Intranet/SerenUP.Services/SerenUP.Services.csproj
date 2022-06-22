@@ -4,12 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>1.0.0.8</AssemblyVersion>
-    <FileVersion>1.0.0.8</FileVersion>
+    <AssemblyVersion>1.0.0.12</AssemblyVersion>
+    <FileVersion>1.0.0.12</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SerenUP.ApplicationCore\SerenUP.ApplicationCore.csproj" />
+    <ProjectReference Include="..\SerenUP.Infrastructure\SerenUP.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

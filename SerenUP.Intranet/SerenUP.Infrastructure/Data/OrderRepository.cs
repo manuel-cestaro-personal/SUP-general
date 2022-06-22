@@ -6,8 +6,8 @@ using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using Dapper;
+using System.Data.SqlClient;
 
 namespace SerenUP.Infrastructure.Data
 {
@@ -16,7 +16,7 @@ namespace SerenUP.Infrastructure.Data
         private readonly string _connectionstring;
         public OrderRepository(IConfiguration configuration)
         {
-            _connectionstring = configuration.GetConnectionString("SerenUPIntranetContextConnection");
+            _connectionstring = configuration.GetConnectionString("SerenUpDB");
         }
 
         public async Task<IEnumerable<Order>> GetAll()
@@ -27,7 +27,7 @@ OrderAddress as OrderAddress,
 Date as Date,
 OrderNumber as OrderNumber
 FROM Order;";
-            using var connection = new MySqlConnection(_connectionstring);
+            using var connection = new SqlConnection(_connectionstring);
             return await connection.QueryAsync<Order>(query);
         }
 
