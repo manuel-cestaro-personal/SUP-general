@@ -1,7 +1,11 @@
-﻿using SerenUP.ApplicationCore.Entities;
+﻿using Dapper;
+using Microsoft.Extensions.Configuration;
+using SerenUP.ApplicationCore.Entities;
+using SerenUP.ApplicationCore.Entitiess;
 using SerenUP.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,24 +14,60 @@ namespace SerenUP.Infrastructure.Data
 {
     public class AccessoryRepository : IAccessoryRepository
     {
-        
 
-        public Task<IEnumerable<Accessory>> GetAll()
+        private readonly string _connectionstring;
+        public AccessoryRepository(IConfiguration configuration)
         {
-            throw new NotImplementedException();
+            _connectionstring = configuration.GetConnectionString("SerenUpDB");
         }
 
-        public Task<Accessory> GetById(Guid id)
+
+        public async Task<IEnumerable<Accessory>> GetAll()
         {
-            throw new NotImplementedException();
+            const string query = @"
+SELECT
+Name as Name,
+Color as Color
+FROM Accessory;";
+            using var connection = new SqlConnection(_connectionstring);
+            return await connection.QueryAsync<Accessory>(query);
         }
 
-        public Task Insert(Accessory model)
+        public async Task<Accessory> GetById(Guid id)
         {
-            throw new NotImplementedException();
+            const string query = @"
+SELECT
+Name as Name,
+Color as Color
+FROM Accessory
+WHERE AccessoryId = @AccessoryId;";
+            using var connection = new SqlConnection(_connectionstring);
+            return await connection.QueryFirstOrDefaultAsync<Accessory>(query, new { AccessoryId = id });
+        }
+        public async Task<Accessory> GetAccessory(string name, string color)
+        {
+            const string query = @"
+SELECT
+Name as Name
+Color as Color
+FROM Accessory
+WHERE Name = @Name AND Color = @Color;";
+            using var connection = new SqlConnection(_connectionstring);
+            return await connection.QueryFirstOrDefaultAsync<Accessory>(query, new { Name = name, Color = color });
+
         }
 
-        public Task Update(Accessory model)
+        public async Task Insert(Accessory name)
+        {
+            const string query = @"
+INSERT INTO Accessory (Name, Color)
+VALUES (@Name, @Color)";
+
+            using var connection = new SqlConnection(_connectionstring);
+            await connection.ExecuteAsync(query, name);
+        }
+
+        public Task Update(Accessory name)
         {
             throw new NotImplementedException();
         }

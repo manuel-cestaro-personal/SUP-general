@@ -1,0 +1,17 @@
+﻿using SerenUP.ApplicationCore.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SerenUP.Services.Interfaces
+{
+    public interface IAccessoryService
+    {
+        Task<IEnumerable<Accessory>> GetAllAccessory();
+        Task InsertAccessory(Accessory model);
+        Task DeleteAccessory(Guid Id);
+        Task<Accessory> GetAccessory(string Model, string Color);
+    }
+}

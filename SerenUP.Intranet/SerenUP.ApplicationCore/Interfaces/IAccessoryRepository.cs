@@ -9,5 +9,6 @@ namespace SerenUP.ApplicationCore.Interfaces
 {
     public interface IAccessoryRepository : IRepository<Accessory, Guid>
     {
+        Task<Accessory> GetAccessory(string name, string color);
     }
 }
