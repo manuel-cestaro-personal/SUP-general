@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SerenUP.ApplicationCore.Entities
 {
-    internal class OrderedAccessoryId : Entity<Guid>
+    public class OrderedAccessoryId : Entity<Guid>
     {
         public Guid OrderId { get; set; }
         public Guid AccessoryId { get; set; }
