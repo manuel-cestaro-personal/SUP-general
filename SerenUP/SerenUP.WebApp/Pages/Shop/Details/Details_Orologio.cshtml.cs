@@ -24,19 +24,22 @@ namespace SerenUP.WebApp.Pages.Shop.Details
         }
 
         public WatchDetail Watch { get; set; }
+        public string Link { get; set; }
         public string ShipmentDate { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string path)
+        public async Task<IActionResult> OnGetAsync(string model, string color)
         {
             ShipmentDate = DateTime.Now.AddMonths(1).ToLongDateString();
             try
             {
+                string path = model + "/" + color;
                 HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, path);
                 HttpResponseMessage response = await _client.SendAsync(requestMessage);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Watch = JsonConvert.DeserializeObject<WatchDetail>(content);
+                    Link = "../Pictures/Orologi/"+Watch.Model+"/"+Watch.Color+".png";
                     return Page();
                 }
                 else

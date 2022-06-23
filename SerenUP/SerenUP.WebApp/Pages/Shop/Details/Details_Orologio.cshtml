@@ -1,4 +1,4 @@
-﻿@page "{path}"
+﻿@page "{model}/{color}"
 @model SerenUP.WebApp.Pages.Shop.Details.Details_OrologioModel
 @{
 }
@@ -9,7 +9,7 @@
         <span>
             <div style="display:inline;">
                 <a asp-page="Details/Details_Orologio">
-                    <img class="icon_details" src="@Model.Watch.Link">
+                    <img class="icon_details" src="">
                 </a>
             </div>
         </span>
@@ -20,7 +20,6 @@
                         <td><a asp-page=""><button class="td_cart">
                             <h5>Orologio @Model.Watch.Model</h5>
                             <h5>Colore: @Model.Watch.Color</h5>
-                            <h5>N: @Model.Watch.Number</h5>
                             <h5>Consegna garantita entro il: @Model.ShipmentDate</h5>
                             <h5>@Model.Watch.Price €</h5>
                         </button></a></td>
@@ -39,7 +38,8 @@
     <div class="text_details"><span>DESCRIZIONE</span></div>
     <div class="text_details">
         <span>
-            @Model.Watch.Description
+            Orologio modello gold con cinturino e scocca di colore @Model.Watch.Color<br />
+            Adatto per tenere monitorate le proprie attività fisiche oltra ad offire le classiche funzionalità di un normale orologio.
         </span>
     </div>
 
