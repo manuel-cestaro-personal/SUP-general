@@ -17,6 +17,8 @@ builder.Services.AddSingleton<IWatchRepository, WatchRepository>();
 builder.Services.AddSingleton<ICartService,CartService>();
 builder.Services.AddSingleton<ICartRepository, CartRepository>();
 
+builder.Services.AddSingleton<IAccessoryService, AccessoryService>();
+builder.Services.AddSingleton<IAccessoryRepository, AccessoryRepository>();
 
 
 var app = builder.Build();

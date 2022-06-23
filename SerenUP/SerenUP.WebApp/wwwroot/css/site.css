@@ -9,12 +9,13 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .hidden {
@@ -75,11 +76,11 @@ body {
 }
 
 #orologi_btn {
-    background-image: url('../Pictures/Accessori/Cinturini/Cinturino_nero.png');
+    background-image: url('../Pictures/Orologi/Gold/Nero.png');
 }
 
 #accessori_btn {
-    background-image: url('../Pictures/Orologi/Gold/Nero.png')
+    background-image: url('../Pictures/Accessori/Cinturini/Cinturino_nero.png');
 }
 
 

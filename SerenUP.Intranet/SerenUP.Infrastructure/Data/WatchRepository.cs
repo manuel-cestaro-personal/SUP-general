@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
-using SerenUP.ApplicationCore.Entitiess;
+using SerenUP.ApplicationCore.Entities;
 using SerenUP.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ WHERE WatchId = @WatchId;";
             return await connection.QueryFirstOrDefaultAsync<Watch>(query, new { WatchId = id });
         }
 
-        public async Task<IEnumerable<Watch>> GetWatch(string Model, string Color)
+        public async Task<IEnumerable<Watch>> GetWatch(string model, string color)
         {
             const string query = @"
 SELECT
@@ -52,7 +52,7 @@ Color as Color
 FROM Watch
 WHERE Model = @Model AND Color = @Color AND OrderId IS NULL;";
             using var connection = new SqlConnection(_connectionstring);
-            return await connection.QueryAsync<Watch>(query, new {Model = Model , Color = Color });
+            return await connection.QueryAsync<Watch>(query, new {Model = model , Color = color });
         }
 
         public async Task Insert(Watch model)
@@ -71,10 +71,7 @@ VALUES (@model, @Price, @Color)";
         }
         public async Task Delete(Guid Id)
         {
-            const string query = "DELETE FROM Watch WHERE WatchId = @id";
-
-            using var connection = new SqlConnection(_connectionstring);
-            await connection.ExecuteAsync(query, new { Id });
+            throw new NotImplementedException();
         }
     }
 }
