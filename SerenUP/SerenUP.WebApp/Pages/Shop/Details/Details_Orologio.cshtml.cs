@@ -39,7 +39,7 @@ namespace SerenUP.WebApp.Pages.Shop.Details
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Watch = JsonConvert.DeserializeObject<WatchDetail>(content);
-                    Link = "../Pictures/Orologi/"+Watch.Model+"/"+Watch.Color+".png";
+                    Link = "/Pictures/Orologi/" + Watch.Model+"/"+Watch.Color+".png";
                     return Page();
                 }
                 else
