@@ -25,8 +25,12 @@ namespace SerenUP.Infrastructure.Data
         {
             const string query = @"
 SELECT
+AccessoryId as Id,
 Name as Name,
-Color as Color
+Price as Price,
+Description as Description,
+Color as Color,
+Quantity as Quantity
 FROM Accessory;";
             using var connection = new SqlConnection(_connectionstring);
             return await connection.QueryAsync<Accessory>(query);
@@ -36,9 +40,12 @@ FROM Accessory;";
         {
             const string query = @"
 SELECT
+AccessoryId as Id,
 Name as Name,
-Color as Color
-FROM Accessory
+Price as Price,
+Description as Description,
+Color as Color,
+Quantity as Quantity
 WHERE AccessoryId = @AccessoryId;";
             using var connection = new SqlConnection(_connectionstring);
             return await connection.QueryFirstOrDefaultAsync<Accessory>(query, new { AccessoryId = id });
@@ -59,8 +66,8 @@ WHERE Name = @Name AND Color = @Color;";
         public async Task Insert(Accessory name)
         {
             const string query = @"
-INSERT INTO Accessory (Name, Color)
-VALUES (@Name, @Color)";
+INSERT INTO Accessory (AccessoryId, Name, Price, Description, Color, Quantity)
+VALUES (@Id, @Name, @Price, @Description, @Color, @Quantity)";
 
             using var connection = new SqlConnection(_connectionstring);
             await connection.ExecuteAsync(query, name);
