@@ -39,7 +39,7 @@ namespace SerenUP.ShopAPI.Controllers
                 }
                 else
                 {
-                    string message = $"Returned AccessoryDetail with model: {res.Name} and color: {res.Color}";
+                    string message = $"Returned AccessoryDetail with model: {accessory.Name} and color: {accessory.Color}";
                     _logger.LogInformation("API GetAccessoryDetail - " + message + " - " + DateTime.Now);
 
                     return Ok(accessory); // 200

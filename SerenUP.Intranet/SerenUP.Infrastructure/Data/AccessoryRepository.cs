@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
 using SerenUP.ApplicationCore.Entities;
-using SerenUP.ApplicationCore.Entitiess;
 using SerenUP.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -48,7 +47,7 @@ WHERE AccessoryId = @AccessoryId;";
         {
             const string query = @"
 SELECT
-Name as Name
+Name as Name,
 Color as Color
 FROM Accessory
 WHERE Name = @Name AND Color = @Color;";
@@ -72,7 +71,7 @@ VALUES (@Name, @Color)";
             throw new NotImplementedException();
         }
 
-        public Task Delete(Guid Id)
+        public Task Delete(Guid id)
         {
             throw new NotImplementedException();
         }
