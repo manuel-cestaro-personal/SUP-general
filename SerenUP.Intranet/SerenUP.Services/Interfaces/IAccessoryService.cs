@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SerenUP.ApplicationCore.Interfaces
+namespace SerenUP.Services.Interfaces
 {
-    public interface IAccessoryRepository : IRepository<Accessory, Guid>
+    public interface IAccessoryService
     {
+        Task<IEnumerable<Accessory>> GetAllAccessory();
+        Task InsertAccessory(Accessory name);
+        Task DeleteAccessory(Guid id);
         Task<Accessory> GetAccessory(string name, string color);
     }
 }
