@@ -22,11 +22,14 @@ namespace SerenUP.Infrastructure.Data
         public async Task<IEnumerable<Order>> GetAll()
         {
             const string query = @"
-SELECT
-OrderAddress as OrderAddress,
-Date as Date,
-OrderNumber as OrderNumber
-FROM Order;";
+SELECT 
+       OrderId as Id
+      ,UserId
+      ,OrderStatus as OrderStatusId
+      ,OrderAddress
+      ,Date
+      ,OrderNumber
+FROM [Order];";
             using var connection = new SqlConnection(_connectionstring);
             return await connection.QueryAsync<Order>(query);
         }
