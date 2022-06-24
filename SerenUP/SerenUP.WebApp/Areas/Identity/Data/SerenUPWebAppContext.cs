@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SerenUP.WebApp.Data;
 
-public class SerenUPWebAppContext 
+public class SerenUPWebAppContext
     : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 {
     public SerenUPWebAppContext(DbContextOptions<SerenUPWebAppContext> options)

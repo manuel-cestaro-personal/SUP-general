@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SerenUP.WebApp.Pages.Shop
@@ -8,7 +7,7 @@ namespace SerenUP.WebApp.Pages.Shop
         public string path { get; set; }
         public void OnGet()
         {
-            path = @"Gold/Black";
+            path = @"Gold/Nero";
         }
     }
 }

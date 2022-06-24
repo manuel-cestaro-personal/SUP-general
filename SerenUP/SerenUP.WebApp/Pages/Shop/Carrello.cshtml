@@ -1,0 +1,81 @@
+﻿@page
+@model SerenUP.WebApp.Pages.Shop.CarrelloModel
+@{
+}
+<html>
+    <body>
+
+<h3>Carello</h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col"style="border: solid 1 green">
+                <form method="post" asp-page="cart" asp-page-handler="update">
+        <table id="table_cart">
+            <tr class="tr_cart" style="height:50px;">
+                <th class="th_cart">Nome</th>
+                <th class="th_cart">Immagine</th>
+                <th class="th_cart">Prezzo</th>
+                <th class="th_cart">Quantità</th>
+            </tr>
+            <tr class="tr_cart">
+                <th class="th_cart">Orologio gold blu</th>
+                <th class="th_cart">
+                    <a asp-page="Details/Details_Orologio" asp-route-Model="Gold" asp-route-Color="Blu">
+                        <img class="icon_cart" src="~/Pictures/Orologi/Gold/Blu.png" />
+                    </a>
+                </th>
+                <th class="th_cart">299€</th>
+                <th class="th_cart">2</th>
+            </tr>
+            <tr class="tr_cart">
+                <th class="th_cart">Orologio silver nero</th>
+                <th class="th_cart">
+                    <a asp-page="Details/Details_Orologio" asp-route-Model="Gold" asp-route-Color="Blu">
+                        <img class="icon_cart" src="~/Pictures/Orologi/Silver/Nero.png" />
+                    </a>
+                </th>
+                <th class="th_cart">199€</th>
+                <th class="th_cart">1</th>
+            </tr>
+           @* @foreach (var item in Model.cart)
+            {
+                <tr align="center">
+                    <td align="center">
+                        <a asp-page="cart" asp-page-handler="delete" asp-route-id="@item.Product.Id">X</a>
+                    </td>
+                    <td>@item.Product.Id</td>
+                    <td>@item.Product.Name</td>
+                    <td><img src="~/images/@item.Product.Photo" width="120" height="100" /></td>
+                    <td>$@item.Product.Price</td>
+                    <td><input type="number" name="quantities" value="@item.Quantity" min="1" style="width: 50px;" /></td>
+                    <td>
+                        $@(item.Product.Price * item.Quantity)
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td colspan="6" align="right">Total</td>
+                <td align="center">@*$@Model.Total</td>*@
+            </tr>
+        </table>
+            </form>
+            </div>
+            <div class="col" style="text-align:center;">
+                <h3>Totale</h3>
+                <br />
+                <h5>Subtotale: 50€</h5>
+                <h5>Spedizione: 0€</h5>
+                <h5>Totale iva inclusa: 50€</h5>
+                <a asp-page="/Index"><button class="td_cart" style="margin-top:20px">Continua lo shopping</button></a>
+                <a asp-page=""><button class="td_cart" style="margin-top:15px">ACQUISTA</button></a>
+                   
+           
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
