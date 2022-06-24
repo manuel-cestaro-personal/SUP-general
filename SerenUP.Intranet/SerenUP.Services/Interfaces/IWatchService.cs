@@ -11,8 +11,13 @@ namespace SerenUP.Services.Interfaces
     {
         Task<IEnumerable<Watch>> GetAllWatch();
         Task InsertWatch(Watch model);
+<<<<<<< Updated upstream
         Task DeleteWatch(Guid Id);
         Task<IEnumerable<Watch>> GetWatch(string Model, string Color);
+=======
+        Task DeleteWatch(Guid id);
+        Task<IEnumerable<Watch>> GetWatch(string model, string color);
+>>>>>>> Stashed changes
 
     }
 }

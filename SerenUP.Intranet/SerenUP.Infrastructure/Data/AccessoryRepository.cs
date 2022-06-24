@@ -27,9 +27,19 @@ namespace SerenUP.Infrastructure.Data
             throw new NotImplementedException();
         }
 
+<<<<<<< Updated upstream
         public Task Update(Accessory model)
+=======
+        public async Task Update(Accessory model)
+>>>>>>> Stashed changes
         {
-            throw new NotImplementedException();
+            const string query = @"
+UPDATE Accessory
+SET Quantity = @Quantity
+WHERE AccessoryId = @Id;";
+
+            using var connection = new SqlConnection(_connectionstring);
+            await connection.ExecuteAsync(query, model);
         }
 
         public Task Delete(Guid Id)

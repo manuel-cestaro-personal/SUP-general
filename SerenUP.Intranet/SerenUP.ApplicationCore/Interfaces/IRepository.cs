@@ -8,6 +8,6 @@ namespace SerenUP.ApplicationCore.Interfaces
         Task<TEntity> GetById (TPrimaryKey id);
         Task Insert (TEntity model);
         Task Update (TEntity model);
-        Task Delete (TPrimaryKey Id);
+        Task Delete (TPrimaryKey id);
     }
 }

@@ -10,7 +10,6 @@ namespace SerenUP.ApplicationCore.Entitiess
         public string Model { get; set; }
         public decimal Price { get; set; }
         public string MacAddress { get; set; }
-        public string SerialNumber { get; set; }
         public Guid ActivationKey { get; set; }
         public string Color { get; set; }
 
