@@ -56,43 +56,7 @@ namespace SerenUP.ShopAPI.Controllers
             }
         }
 
-        [HttpGet("{name}/{color}")]
-        [ProducesResponseType(200, Type = typeof(Accessory))]
-        public async Task<IActionResult> GetAllAccessory()
-        {
-
-            try
-            {
-                IEnumerable<Accessory> AccessoryList = await _accessoryService.GetAllAccessory();
-
-                if (AccessoryList.Count() == 0)
-                {
-                    string message = "Prodotti non disponibile.";
-                    _logger.LogInformation("API GetAccessory - " + message + " - " + DateTime.Now);
-                    return StatusCode(400, new
-                    {
-                        Result = false,
-                        ErrorMessage = message
-                    });
-                }
-                else
-                {
-                    //string message = $"Returned GetAllAccessory with name: {res.Name} and color: {res.Color}";
-                    //_logger.LogInformation("API GetAllAccessory - " + message + " - " + DateTime.Now);
-
-                    return Ok(await _accessoryService.GetAllAccessory()); // 200
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogInformation("API GetWatchDetail - " + ex.Message + " - " + DateTime.Now);
-                return StatusCode(500, new
-                {
-                    Result = false,
-                    ErrorMessage = "SERVER ERROR! Contact the system administrator."
-                });
-            }
-        }
+       
 
 
         [HttpGet("{name}/{color}")]
