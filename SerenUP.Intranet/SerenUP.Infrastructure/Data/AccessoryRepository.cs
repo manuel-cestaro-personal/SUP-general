@@ -20,9 +20,19 @@ namespace SerenUP.Infrastructure.Data
         }
 
 
-        public Task<IEnumerable<Accessory>> GetAll()
+        public async Task<IEnumerable<Accessory>> GetAll()
         {
-            throw new NotImplementedException();
+            const string query = @"
+SELECT
+AccessoryId as Id,
+Name as Name,
+Price as Price,
+Description as Description,
+Color as Color,
+Quantity as Quantity
+FROM Accessory;";
+            using var connection = new SqlConnection(_connectionstring);
+            return await connection.QueryAsync<Accessory>(query);
         }
 
 
