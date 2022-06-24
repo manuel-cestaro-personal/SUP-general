@@ -38,6 +38,10 @@ FROM Accessory;";
 
         public async Task<Accessory> GetById(Guid id)
         {
+            throw new NotImplementedException();
+        }
+        public async Task<Accessory> GetAccessory(string name, string color)
+        {
             const string query = @"
 SELECT
 AccessoryId as Id,
@@ -46,16 +50,6 @@ Price as Price,
 Description as Description,
 Color as Color,
 Quantity as Quantity
-WHERE AccessoryId = @AccessoryId;";
-            using var connection = new SqlConnection(_connectionstring);
-            return await connection.QueryFirstOrDefaultAsync<Accessory>(query, new { AccessoryId = id });
-        }
-        public async Task<Accessory> GetAccessory(string name, string color)
-        {
-            const string query = @"
-SELECT
-Name as Name,
-Color as Color
 FROM Accessory
 WHERE Name = @Name AND Color = @Color;";
             using var connection = new SqlConnection(_connectionstring);
@@ -63,19 +57,25 @@ WHERE Name = @Name AND Color = @Color;";
 
         }
 
-        public async Task Insert(Accessory name)
+        public async Task Insert(Accessory model)
         {
             const string query = @"
 INSERT INTO Accessory (AccessoryId, Name, Price, Description, Color, Quantity)
 VALUES (@Id, @Name, @Price, @Description, @Color, @Quantity)";
 
             using var connection = new SqlConnection(_connectionstring);
-            await connection.ExecuteAsync(query, name);
+            await connection.ExecuteAsync(query, model);
         }
 
-        public Task Update(Accessory name)
+        public async Task Update(Accessory model)
         {
-            throw new NotImplementedException();
+            const string query = @"
+UPDATE Accessory 
+SET Quantity = @Quantity
+WHERE AccessoryId = @Id";
+
+            using var connection = new SqlConnection(_connectionstring);
+            await connection.ExecuteAsync(query, model);
         }
 
         public Task Delete(Guid id)

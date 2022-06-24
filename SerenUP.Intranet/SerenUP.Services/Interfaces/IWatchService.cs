@@ -10,9 +10,10 @@ namespace SerenUP.Services.Interfaces
     public interface IWatchService
     {
         Task<IEnumerable<Watch>> GetAllWatch();
-        Task InsertWatch(Watch model);
-        Task DeleteWatch(Guid Id);
         Task<IEnumerable<Watch>> GetWatch(string model, string color);
+        Task InsertWatch(Watch model);
+        Task UpdateWatch(Watch model);
+        
 
     }
 }

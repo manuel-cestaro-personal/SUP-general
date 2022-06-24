@@ -27,13 +27,14 @@ namespace SerenUP.Services.Services
         {
             return await _accessoryRepository.GetAccessory(name, color);
         }
-        public async Task InsertAccessory(Accessory name)
+        public async Task InsertAccessory(Accessory model)
         {
-             await _accessoryRepository.Insert(name);
+             await _accessoryRepository.Insert(model);
         }
-        public async Task DeleteAccessory(Guid id)
+
+        public async Task UpdateAccessory(Accessory model)
         {
-            await _accessoryRepository.Delete(id);
+            await _accessoryRepository.Update(model);
         }
     }
 }
