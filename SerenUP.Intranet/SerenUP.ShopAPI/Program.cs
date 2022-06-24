@@ -21,6 +21,10 @@ builder.Services.AddSingleton<IAccessoryService, AccessoryService>();
 builder.Services.AddSingleton<IAccessoryRepository, AccessoryRepository>();
 
 
+builder.Services.AddSingleton<IOrderService, OrderService>();
+builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
