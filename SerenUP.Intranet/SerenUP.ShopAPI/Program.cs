@@ -14,6 +14,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IWatchService, WatchService>();
 builder.Services.AddSingleton<IWatchRepository, WatchRepository>();
 
+builder.Services.AddSingleton<ICartService,CartService>();
+builder.Services.AddSingleton<ICartRepository, CartRepository>();
+
+builder.Services.AddSingleton<IAccessoryService, AccessoryService>();
+builder.Services.AddSingleton<IAccessoryRepository, AccessoryRepository>();
+
+
+builder.Services.AddSingleton<IOrderService, OrderService>();
+builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

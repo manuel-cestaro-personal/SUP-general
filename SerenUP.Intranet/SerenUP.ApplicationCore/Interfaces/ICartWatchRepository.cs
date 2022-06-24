@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace SerenUP.ApplicationCore.Interfaces
 {
-    public interface IAccessoryRepository : IRepository<Accessory, Guid>
+    public interface ICartWatchRepository:IRepository<CartWatch,Guid>
     {
-        Task<Accessory> GetAccessory(string name, string color);
+
     }
 }

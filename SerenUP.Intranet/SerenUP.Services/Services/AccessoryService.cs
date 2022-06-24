@@ -18,6 +18,7 @@ namespace SerenUP.Services.Services
             _accessoryRepository = accessoryRepository;
         }
 
+
         public async Task<IEnumerable<Accessory>> GetAllAccessory()
         {
             return await _accessoryRepository.GetAll();

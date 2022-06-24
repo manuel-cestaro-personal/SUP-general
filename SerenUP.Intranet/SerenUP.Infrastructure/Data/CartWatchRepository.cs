@@ -8,37 +8,29 @@ using System.Threading.Tasks;
 
 namespace SerenUP.Infrastructure.Data
 {
-    public class AccessoryRepository : IAccessoryRepository
+    public class CartWatchRepository : ICartWatchRepository
     {
-        
-
-        public Task<IEnumerable<Accessory>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Accessory> GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Insert(Accessory model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task Update(Accessory model)
-        {
-            const string query = @"
-UPDATE Accessory
-SET Quantity = @Quantity
-WHERE AccessoryId = @Id;";
-
-            using var connection = new SqlConnection(_connectionstring);
-            await connection.ExecuteAsync(query, model);
-        }
-
         public Task Delete(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CartWatch>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CartWatch> GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Insert(CartWatch model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Update(CartWatch model)
         {
             throw new NotImplementedException();
         }

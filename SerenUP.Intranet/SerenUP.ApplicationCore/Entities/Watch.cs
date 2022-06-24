@@ -1,7 +1,7 @@
 ﻿using SerenUP.ApplicationCore.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace SerenUP.ApplicationCore.Entitiess
+namespace SerenUP.ApplicationCore.Entities
 {
     public class Watch : Entity<Guid>
     {

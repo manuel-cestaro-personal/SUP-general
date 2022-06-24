@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SerenUP.ApplicationCore.Entities;
-using SerenUP.ApplicationCore.Entitiess;
 using SerenUP.Services.Interfaces;
 
 namespace SerenUP.ShopAPI.Controllers
