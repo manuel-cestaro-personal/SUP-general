@@ -59,10 +59,12 @@ WHERE Model = @Model AND Color = @Color AND OrderId IS NULL;";
         }
 
         public async Task Insert(Watch model)
-        {
+        { 
             const string query = @"
+
 INSERT INTO Watch (WatchId, Model, Price, MacAddress, ActivationKey, Color, WatchStatus)
 VALUES (@Id, @Model, @Price, @MacAddress, @ActivationKey, @Color, @WatchStatus)";
+
 
             using var connection = new SqlConnection(_connectionstring);
             await connection.ExecuteAsync(query, model);
@@ -77,6 +79,7 @@ WHERE WatchId = @Id";
 
             using var connection = new SqlConnection(_connectionstring);
             await connection.ExecuteAsync(query, model);
+
         }
         public async Task Delete(Guid Id)
         {

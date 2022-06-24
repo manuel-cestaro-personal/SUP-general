@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SerenUP.ApplicationCore.Entities
 {
-    internal class Cart : Entity<Guid>
+    public class Cart : Entity<Guid>
     {
         public Guid UserId { get; set; }
     }

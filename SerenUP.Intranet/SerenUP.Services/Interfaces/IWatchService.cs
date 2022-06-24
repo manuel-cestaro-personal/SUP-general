@@ -1,4 +1,4 @@
-﻿using SerenUP.ApplicationCore.Entities;
+﻿using SerenUP.ApplicationCore.Entitiess;
 using System;
 using System.Collections.Generic;
 using System.Linq;

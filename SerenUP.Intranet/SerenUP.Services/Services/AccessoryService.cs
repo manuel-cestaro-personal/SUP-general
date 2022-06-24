@@ -23,15 +23,18 @@ namespace SerenUP.Services.Services
         {
             return await _accessoryRepository.GetAll();
         }
+
         public async Task<Accessory> GetAccessory(string name, string color)
         {
             return await _accessoryRepository.GetAccessory(name, color);
         }
+        
         public async Task InsertAccessory(Accessory model)
+
         {
              await _accessoryRepository.Insert(model);
         }
-
+        
         public async Task UpdateAccessory(Accessory model)
         {
             await _accessoryRepository.Update(model);

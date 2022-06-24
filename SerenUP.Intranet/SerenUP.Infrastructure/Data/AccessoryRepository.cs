@@ -1,10 +1,7 @@
-﻿using Dapper;
-using Microsoft.Extensions.Configuration;
-using SerenUP.ApplicationCore.Entities;
+﻿using SerenUP.ApplicationCore.Entities;
 using SerenUP.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,16 +10,16 @@ namespace SerenUP.Infrastructure.Data
 {
     public class AccessoryRepository : IAccessoryRepository
     {
+        
 
-        private readonly string _connectionstring;
-        public AccessoryRepository(IConfiguration configuration)
+        public Task<IEnumerable<Accessory>> GetAll()
         {
-            _connectionstring = configuration.GetConnectionString("SerenUpDB");
+            throw new NotImplementedException();
         }
 
-
-        public async Task<IEnumerable<Accessory>> GetAll()
+        public Task<Accessory> GetById(Guid id)
         {
+
             const string query = @"
 SELECT
 AccessoryId as Id,
@@ -76,9 +73,10 @@ WHERE AccessoryId = @Id";
 
             using var connection = new SqlConnection(_connectionstring);
             await connection.ExecuteAsync(query, model);
+
         }
 
-        public Task Delete(Guid id)
+        public Task Delete(Guid Id)
         {
             throw new NotImplementedException();
         }

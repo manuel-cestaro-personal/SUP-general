@@ -17,11 +17,13 @@ namespace SerenUP.ShopAPI.Controllers
             _watchService = watchService;
             _logger = logger;
         }
-
+        
+        
         [HttpGet("GetAllWatch")]
         [ProducesResponseType(200, Type = typeof(Watch))]
         public async Task<IActionResult> GetAllWatch()
         {
+
             try
             {
                 IEnumerable<Watch> WatchList = await _watchService.GetAllWatch();
@@ -47,6 +49,7 @@ namespace SerenUP.ShopAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogInformation("API GetAllWatch - " + ex.Message + " - " + DateTime.Now);
+
                 return StatusCode(500, new
                 {
                     Result = false,
@@ -100,6 +103,7 @@ namespace SerenUP.ShopAPI.Controllers
             }
         }
 
+
         [HttpPost("InsertWatch")]
         public async Task<IActionResult> InsertWatch(Watch model)
         {
@@ -121,7 +125,6 @@ namespace SerenUP.ShopAPI.Controllers
                         Color = model.Color,
                         WatchStatus = model.WatchStatus
                     };
-
                     await _watchService.InsertWatch(model);
 
                     return Ok(new
@@ -140,7 +143,6 @@ namespace SerenUP.ShopAPI.Controllers
                 });
             }
         }
-
         [HttpPut("UpdateWatchStatus")]
 
         public async Task<IActionResult> UpdateWatch(Watch model)
