@@ -32,9 +32,10 @@ namespace SerenUP.Services.Services
         {
             await _watchRepository.Insert(model);
         }
-        public async Task DeleteWatch(Guid Id)
+
+        public async Task UpdateWatch(Watch model)
         {
-            await _watchRepository.Delete(Id);
+            await _watchRepository.Update(model);
         }
     }
 }

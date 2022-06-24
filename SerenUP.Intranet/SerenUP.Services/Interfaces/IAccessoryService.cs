@@ -10,9 +10,8 @@ namespace SerenUP.Services.Interfaces
     public interface IAccessoryService
     {
         Task<IEnumerable<Accessory>> GetAllAccessory();
-        Task DeleteAccessory(Guid id);
         Task<Accessory> GetAccessory(string name, string color);
-        Task UpdateAccessory(Accessory model);
-
+        Task InsertAccessory(Accessory name);
+        Task UpdateAccessory(Accessory name);
     }
 }
