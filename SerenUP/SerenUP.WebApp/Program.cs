@@ -9,7 +9,7 @@ var configuration = builder.Configuration;
 
 //services.AddDbContext<SerenUPWebAppContext>();
 builder.Services.AddDbContext<SerenUPWebAppContext>(options =>
-    options.UseSqlServer(connectionString));;
+    options.UseSqlServer(connectionString)); ;
 
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
 {
@@ -67,7 +67,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
+app.UseAuthentication(); ;
 
 app.UseAuthorization();
 
