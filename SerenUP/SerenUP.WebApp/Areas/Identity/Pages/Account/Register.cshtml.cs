@@ -23,13 +23,18 @@ namespace SerenUP.WebApp.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly HttpClient _client;
+        private readonly IConfiguration _configuration;
+        private readonly string CartInsert;
+        private readonly string ShopAPI;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, 
+            IConfiguration configuration)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -37,6 +42,11 @@ namespace SerenUP.WebApp.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _client = new HttpClient();
+            _configuration = configuration;
+            ShopAPI = _configuration.GetSection("HttpUrls")["ShopAPI"];
+            CartInsert = _configuration.GetSection("HttpUrls")["CartInsert"];
+            _client.BaseAddress = new Uri(ShopAPI + CartInsert);
         }
 
         /// <summary>
@@ -151,6 +161,30 @@ namespace SerenUP.WebApp.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
+
+                    //inserimento nuovo carrello
+                    //var currentUser = await _userManager.FindByEmailAsync(User.Identity.Name);  --> ricevo i dati completi dell'utente corrente
+                    //Guid userId = currentUser.Id;  --> ne ricavo l'id
+                    try
+                    {
+                        HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "");
+                        requestMessage.Content = JsonContent.Create(userId);
+                        HttpResponseMessage response = await _client.SendAsync(requestMessage);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            _logger.LogInformation($"WebApp: Register page - {response.StatusCode} \n{response.RequestMessage.Method} \n{response.RequestMessage.RequestUri} \n- {DateTime.Now} - {userId}");
+                        }
+                        else
+                        {
+                            _logger.LogInformation($"WebApp: Register page - {response.StatusCode} \n{response.RequestMessage.Method} \n{response.RequestMessage.RequestUri} \n- {DateTime.Now} - {userId}");
+                            return RedirectToPage("/Index");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogInformation($"WebApp: Register page - {ex.Message} - {DateTime.Now} - {userId}");
+                        return RedirectToPage("/Index");
+                    }
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
