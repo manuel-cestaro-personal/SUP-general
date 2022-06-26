@@ -44,15 +44,15 @@ namespace SerenUP.WebApp.Pages.Shop.Details
                 }
                 else
                 {
-                    return Page();
-                    //return RedirectToPage("/Index");
+                    _logger.LogInformation($"WebApp: Details_Orologio page - {response.StatusCode} \n{response.RequestMessage.Method} \n{response.RequestMessage.RequestUri} \n- {DateTime.Now} - {User.Identity.Name}");
+                    return RedirectToPage("./Prodotto_non_trovato");
                     //page popup prodotto non disponibile 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                _logger.LogInformation($"WebApp: Details_Orologio page - {ex.Message} - {DateTime.Now} - {User.Identity.Name}");
                 return RedirectToPage("/Index");
-
             }
         }
     }
