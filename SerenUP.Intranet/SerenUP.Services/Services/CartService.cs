@@ -18,6 +18,12 @@ namespace SerenUP.Services.Services
             _cartRepository = cartRepository;
         }
 
+        public async Task<Guid> FindCartId(Guid userId)
+        {
+            Cart cart = await _cartRepository.GetByUserId(userId);
+            return cart.CartId;
+        }
+
         public async Task InsertCart(Cart model)
         {
             await _cartRepository.Insert(model);

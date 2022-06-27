@@ -52,10 +52,20 @@ INSERT INTO Cart (CartId, UserId)
 VALUES (@CartId, @UserId); ";
 
             using var connection = new SqlConnection(_connectionstring);
-            await connection.ExecuteAsync(query, new { CartId = model.Id, UserId = model.UserId });
+            await connection.ExecuteAsync(query, new { CartId = model.CartId, UserId = model.UserId });
         }
 
-
+        public async Task<Cart> GetByUserId(Guid id)
+        {
+            const string query = @"
+                SELECT
+                CartId, 
+                UserId
+                FROM Cart
+                WHERE UserId = @Id;";
+            using var connection = new SqlConnection(_connectionstring);
+            return await connection.QueryFirstOrDefaultAsync<Cart>(query, new { Id = id });
+        }
     }
 }
 

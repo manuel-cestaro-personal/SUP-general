@@ -32,7 +32,7 @@ namespace SerenUP.ShopAPI.Controllers
                     Cart model = new Cart();
 
                     Guid cartId = Guid.NewGuid();
-                    model.Id = cartId;
+                    model.CartId = cartId;
                     model.UserId = userId;
 
                     await _cartService.InsertCart(model);
