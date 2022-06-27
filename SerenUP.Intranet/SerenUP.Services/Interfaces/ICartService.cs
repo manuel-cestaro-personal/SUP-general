@@ -10,6 +10,7 @@ namespace SerenUP.Services.Interfaces
     public interface ICartService
     {
         Task InsertCart(Cart model);
+        Task<Guid> FindCartId(Guid userId);
 
     }
 }
