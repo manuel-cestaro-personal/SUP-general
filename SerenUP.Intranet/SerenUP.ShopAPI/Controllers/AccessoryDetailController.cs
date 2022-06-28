@@ -111,7 +111,7 @@ namespace SerenUP.ShopAPI.Controllers
                 {
                     Accessory accessory = new Accessory()
                     {
-                        Id = model.Id,
+                        AccessoryId = model.AccessoryId,
                         Name = model.Name,
                         Price = model.Price,
                         Description = model.Description,
@@ -150,7 +150,7 @@ namespace SerenUP.ShopAPI.Controllers
                 {
                     Accessory accessory = new Accessory();
 
-                    accessory.Id = model.Id;
+                    accessory.AccessoryId = model.AccessoryId;
                     await _accessoryService.UpdateAccessory(model);
 
                     return Ok(new

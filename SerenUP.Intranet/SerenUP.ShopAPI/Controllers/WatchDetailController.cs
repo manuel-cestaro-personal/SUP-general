@@ -117,7 +117,7 @@ namespace SerenUP.ShopAPI.Controllers
                 {
                     Watch watch = new Watch()
                     {
-                        Id = model.Id,
+                        WatchId = model.WatchId,
                         Model = model.Model,
                         Price = model.Price,
                         MacAddress = model.MacAddress,
