@@ -2,9 +2,9 @@
 
 namespace SerenUP.ApplicationCore.Entities
 {
-    public class Accessory : Entity<Guid>
+    public class Accessory
     {
-
+        public Guid AccessoryId { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }

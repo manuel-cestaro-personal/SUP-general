@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace SerenUP.ApplicationCore.Entities
 {
-    public class CartWatch : Entity<Guid>
+    public class CartWatch
     {
         public Guid WatchId { get; set; }
+        public Guid CartWatchId { get; set; }
         public Guid CartId { get; set; }
 
     }

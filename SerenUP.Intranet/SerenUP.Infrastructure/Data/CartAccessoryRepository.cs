@@ -35,7 +35,7 @@ namespace SerenUP.Infrastructure.Data
         {
             const string query = @"
                 SELECT
-				Accessory.AccessoryId,
+				CartAccessory.CartAccessoryId AS AccessoryId,
                 Accessory.Color,
 				Accessory.Description,
 				Accessory.Name,
