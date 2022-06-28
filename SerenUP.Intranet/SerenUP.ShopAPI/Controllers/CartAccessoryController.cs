@@ -4,6 +4,8 @@ using SerenUP.Services.Interfaces;
 
 namespace SerenUP.ShopAPI.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CartAccessoryController : Controller
     {
         private readonly ICartAccessoryService _cartAccessoryService;

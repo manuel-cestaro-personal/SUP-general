@@ -24,7 +24,6 @@ namespace SerenUP.WebApp.Pages.Shop.Details
         }
 
         public AccessoryDetail Accessory { get; set; }
-        public string Link { get; set; }
         public string ShipmentDate { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string name, string color)
@@ -39,7 +38,7 @@ namespace SerenUP.WebApp.Pages.Shop.Details
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Accessory = JsonConvert.DeserializeObject<AccessoryDetail>(content);
-                    Link = "/Pictures/Accessori/" + Accessory.Name + "/" + Accessory.Color + ".png";
+                    Accessory.Link = "/Pictures/Accessori/" + Accessory.Name + "/" + Accessory.Color + ".png";
                     return Page();
                 }
                 else

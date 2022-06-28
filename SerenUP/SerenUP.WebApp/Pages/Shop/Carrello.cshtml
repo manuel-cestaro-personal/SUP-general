@@ -12,7 +12,7 @@
             <div class="col"style="border: solid 1 green">
                 <form method="post" asp-page="cart" asp-page-handler="update">
         <table id="table_cart">
-            <tr class="tr_cart" style="height:50px;">
+            @*<tr class="tr_cart" style="height:50px;">
                 <th class="th_cart">Nome</th>
                 <th class="th_cart">Immagine</th>
                 <th class="th_cart">Prezzo</th>
@@ -37,26 +37,25 @@
                 </th>
                 <th class="th_cart">199€</th>
                 <th class="th_cart">1</th>
-            </tr>
-           @* @foreach (var item in Model.cart)
+            </tr>*@
+            @foreach (var accessory in Model.AccessoryList)
             {
                 <tr align="center">
-                    <td align="center">
-                        <a asp-page="cart" asp-page-handler="delete" asp-route-id="@item.Product.Id">X</a>
-                    </td>
-                    <td>@item.Product.Id</td>
-                    <td>@item.Product.Name</td>
-                    <td><img src="~/images/@item.Product.Photo" width="120" height="100" /></td>
-                    <td>$@item.Product.Price</td>
-                    <td><input type="number" name="quantities" value="@item.Quantity" min="1" style="width: 50px;" /></td>
+                    @*<td align="center">
+                        <a asp-page="cart" asp-page-handler="delete" asp-route-id="@accessory.Product.Id">X</a>
+                    </td>*@
+                    <td>@accessory.Name</td>
+                    <td><img src="@accessory.Link" width="120" height="100" /></td>
+                    <td>$@accessory.Price</td>
+                    <td><input type="number" name="quantities" value="@accessory.Quantity" min="1" style="width: 50px;" /></td>
                     <td>
-                        $@(item.Product.Price * item.Quantity)
+                        $@(accessory.Price * accessory.Quantity)
                     </td>
                 </tr>
             }
             <tr>
                 <td colspan="6" align="right">Total</td>
-                <td align="center">@*$@Model.Total</td>*@
+                <td align="center">@*$@Model.Total*@</td>
             </tr>
         </table>
             </form>
