@@ -53,6 +53,21 @@
                     </td>
                 </tr>
             }
+            @foreach (var watch in Model.WatchList)
+            {
+                <tr align="center">
+                    @*<td align="center">
+                        <a asp-page="cart" asp-page-handler="delete" asp-route-id="@accessory.Product.Id">X</a>
+                    </td>*@
+                    <td>@watch.Model</td>
+                    <td><img src="@watch.Link" width="120" height="100" /></td>
+                    <td>$@watch.Price</td>
+                    <td><input type="number" name="quantities" value="1" min="1" style="width: 50px;" /></td>
+                    <td>
+                        $@(watch.Price)
+                    </td>
+                </tr>
+            }
             <tr>
                 <td colspan="6" align="right">Total</td>
                 <td align="center">@*$@Model.Total*@</td>
