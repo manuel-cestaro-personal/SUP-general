@@ -67,7 +67,7 @@ VALUES (@Id, @Name, @Price, @Description, @Color, @Quantity)";
             await connection.ExecuteAsync(query, model);
         }
 
-        public async Task Update(Accessory model)
+        public async Task Update(Guid id, int quantity)
         {
             const string query = @"
 UPDATE Accessory 
@@ -75,7 +75,7 @@ SET Quantity = @Quantity
 WHERE AccessoryId = @Id";
 
             using var connection = new SqlConnection(_connectionstring);
-            await connection.ExecuteAsync(query, model);
+            await connection.ExecuteAsync(query, new {Id = id, Quantity = quantity});
 
         }
 

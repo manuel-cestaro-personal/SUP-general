@@ -35,9 +35,9 @@ namespace SerenUP.Services.Services
              await _accessoryRepository.Insert(model);
         }
         
-        public async Task UpdateAccessory(Accessory model)
+        public async Task UpdateAccessory(Guid id, int quantity)
         {
-            await _accessoryRepository.Update(model);
+            await _accessoryRepository.Update(id, quantity);
         }
     }
 }
