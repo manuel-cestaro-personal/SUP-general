@@ -138,7 +138,7 @@ namespace SerenUP.ShopAPI.Controllers
         }
 
         [HttpPut("UpdateAccessoryQuantity")]
-        public async Task<IActionResult> UpdateAccessory(Accessory model) //Deve essere passato solo la quantità degli accessori!!!
+        public async Task<IActionResult> UpdateAccessory(Guid id, int quantity)
         {
             try
             {
@@ -148,10 +148,7 @@ namespace SerenUP.ShopAPI.Controllers
                 }
                 else
                 {
-                    Accessory accessory = new Accessory();
-
-                    accessory.AccessoryId = model.AccessoryId;
-                    await _accessoryService.UpdateAccessory(model);
+                    await _accessoryService.UpdateAccessory(id, quantity);
 
                     return Ok(new
                     {

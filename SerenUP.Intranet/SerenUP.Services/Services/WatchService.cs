@@ -33,9 +33,9 @@ namespace SerenUP.Services.Services
             await _watchRepository.Insert(model);
         }
 
-        public async Task UpdateWatch(Watch model)
+        public async Task UpdateWatch(Guid id, bool status)
         {
-            await _watchRepository.Update(model);
+            await _watchRepository.Update(id, status);
         }
 
         public async Task<IEnumerable<Watch>> WatchActivate(Guid id, Guid activationKey)

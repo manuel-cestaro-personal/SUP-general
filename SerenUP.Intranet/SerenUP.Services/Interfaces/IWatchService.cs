@@ -12,7 +12,7 @@ namespace SerenUP.Services.Interfaces
         Task<IEnumerable<Watch>> GetAllWatch();
         Task<IEnumerable<Watch>> GetWatch(string model, string color);
         Task InsertWatch(Watch model);
-        Task UpdateWatch(Watch model);
+        Task UpdateWatch(Guid id, bool status);
         Task<IEnumerable<Watch>> WatchActivate(Guid id, Guid activationKey);
         
 
