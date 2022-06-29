@@ -23,9 +23,9 @@ namespace SerenUP.Infrastructure.Data
         {
             const string query = @"
 SELECT 
-       OrderId as Id
+       OrderId
       ,UserId
-      ,OrderStatus as OrderStatusId
+      ,Status
       ,OrderAddress
       ,Date
       ,OrderNumber

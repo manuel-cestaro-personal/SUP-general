@@ -24,7 +24,7 @@ namespace SerenUP.Infrastructure.Data
         {
             const string query = @"
 SELECT
-AccessoryId as Id,
+AccessoryId,
 Name as Name,
 Price as Price,
 Description as Description,
@@ -44,7 +44,7 @@ FROM Accessory;";
         {
             const string query = @"
 SELECT
-AccessoryId as Id,
+AccessoryId,
 Name as Name,
 Price as Price,
 Description as Description,

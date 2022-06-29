@@ -23,7 +23,7 @@ namespace SerenUP.Infrastructure.Data
         {
             const string query = @"
 SELECT
-WatchId as Id,
+WatchId,
 Model as Model,
 Price as Price,
 MacAddress as MacAddress,
@@ -45,7 +45,7 @@ FROM Watch;";
         {
             const string query = @"
 SELECT
-WatchId as Id,
+WatchId,
 Model as Model,
 Price as Price,
 MacAddress as MacAddress,

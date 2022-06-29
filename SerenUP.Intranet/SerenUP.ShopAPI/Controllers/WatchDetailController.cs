@@ -145,7 +145,7 @@ namespace SerenUP.ShopAPI.Controllers
         }
         [HttpPut("UpdateWatchStatus")]
 
-        public async Task<IActionResult> UpdateWatch(Watch model)
+        public async Task<IActionResult> UpdateWatch(Watch model) //deve essere passato solo lo stato dell'orologio!!!
         {
             try
             {
