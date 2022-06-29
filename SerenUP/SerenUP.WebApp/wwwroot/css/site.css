@@ -83,7 +83,7 @@ body {
 }
 
 .td_cart {
-    min-width: 320px;
+    min-width: 500px;
     min-height: 50px;
     text-align:center;
 }
@@ -102,7 +102,7 @@ body {
 }
 
 #accessori_btn {
-    background-image: url('../Pictures/Accessori/Cinturini/Cinturino_nero.png');
+    background-image: url('../Pictures/Accessori/Cinturino/Nero.png');
 }
 
 
