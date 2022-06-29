@@ -13,5 +13,6 @@ namespace SerenUP.Services.Interfaces
         Task<Accessory> GetAccessory(string name, string color);
         Task InsertAccessory(Accessory name);
         Task UpdateAccessory(Accessory name);
+        
     }
 }
