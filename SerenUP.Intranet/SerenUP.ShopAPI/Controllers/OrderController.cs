@@ -37,8 +37,8 @@ namespace SerenUP.ShopAPI.Controllers
                 }
                 else
                 {
-                    //string message = $"Returned GetOrder";
-                    //_logger.LogInformation("API GetAllOrder - " + message + " - " + DateTime.Now);
+                    string message = $"Returned GetOrder";
+                    _logger.LogInformation("API GetAllOrder - " + message + " - " + DateTime.Now);
 
                     return Ok(await _orderService.GetAllOrder()); // 200
                 }
@@ -47,6 +47,33 @@ namespace SerenUP.ShopAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogInformation("API GetAllOrder - " + ex.Message + " - " + DateTime.Now);
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = "SERVER ERROR! Contact the system administrator."
+                });
+            }
+        }
+
+
+        [HttpPut("UpdateStatusOrder")]
+        public async Task<IActionResult> UpdateStatusOrder(Guid id, string status)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState); // 400
+                }
+                else
+                {
+                    await _orderService.UpdateStatus(id, status);
+                    return Ok();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("API UpdateStatus - " + ex.Message + " - " + DateTime.Now);
                 return StatusCode(500, new
                 {
                     Result = false,
