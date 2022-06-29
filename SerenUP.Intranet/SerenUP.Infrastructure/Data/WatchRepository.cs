@@ -19,6 +19,8 @@ namespace SerenUP.Infrastructure.Data
             _connectionstring = configuration.GetConnectionString("SerenUpDB");
         }
 
+        
+
         public async Task<IEnumerable<Watch>> GetAll()
         {
             const string query = @"
@@ -78,12 +80,26 @@ SET WatchStatus = 1
 WHERE WatchId = @Id";
 
             using var connection = new SqlConnection(_connectionstring);
-            await connection.ExecuteAsync(query, model);
+            await connection.ExecuteAsync(query, new {Id = model.WatchId});
 
         }
-        public async Task Delete(Guid Id)
+        public Task Delete(Guid id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Watch>> WatchActivate(Guid id, Guid activationKey)
+        {
+            const string query = @"
+SELECT
+WatchId,
+ActivationKey as ActivationKey
+FROM Watch
+WHERE 
+WatchId = @WatchId AND ActivationKey = @ActivationKey";
+
+            using var connection = new SqlConnection(_connectionstring);
+            return await connection.QueryAsync<Watch>(query, new { WatchId= id, ActivationKey = activationKey });
         }
     }
 }

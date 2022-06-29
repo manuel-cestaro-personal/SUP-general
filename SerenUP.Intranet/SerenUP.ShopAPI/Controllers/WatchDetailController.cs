@@ -171,5 +171,47 @@ namespace SerenUP.ShopAPI.Controllers
                 });
             }
         }
+
+
+        [HttpGet("WatchActivate {id}/{activationKey}")]
+        public async Task<IActionResult> WatchActivate(Guid id, Guid activationKey)
+        {
+
+            try
+            {
+                IEnumerable<Watch> idList = await _watchService.WatchActivate(id,activationKey);
+
+                if (idList.Count() == 0)
+                {
+                    string message = "Activation Key non trovata";
+                    _logger.LogInformation("API ActivationWatch - " + message + " - " + DateTime.Now);
+                    return StatusCode(400, new
+                    {
+                        Result = false,
+                        ErrorMessage = message
+                    });
+                }
+                else
+                {
+                    //string message = $"Returned GetAllAccessory with name: {res.Name} and color: {res.Color}";
+                    //_logger.LogInformation("API GetAllAccessory - " + message + " - " + DateTime.Now);
+                    Watch watch = new Watch();
+                    watch.WatchId = id;
+                    await _watchService.UpdateWatch(watch);
+                    return Ok(await _watchService.WatchActivate(id, activationKey)); // 200
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("API ActivationWatch - " + ex.Message + " - " + DateTime.Now);
+
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = "SERVER ERROR! Contact the system administrator."
+                });
+            }
+        }
     }
 }
