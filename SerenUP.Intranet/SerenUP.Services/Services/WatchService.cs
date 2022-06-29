@@ -1,4 +1,4 @@
-﻿using SerenUP.ApplicationCore.Entitiess;
+﻿using SerenUP.ApplicationCore.Entities;
 using SerenUP.ApplicationCore.Interfaces;
 using SerenUP.Services.Interfaces;
 using System;
@@ -23,18 +23,24 @@ namespace SerenUP.Services.Services
             return await _watchRepository.GetAll();
         }
 
-        public async Task<IEnumerable<Watch>> GetWatch(string Model, string Color)
+        public async Task<IEnumerable<Watch>> GetWatch(string model, string color)
         {
-            return await _watchRepository.GetWatch(Model, Color);
+            return await _watchRepository.GetWatch(model, color);
         }
 
         public async Task InsertWatch(Watch model)
         {
             await _watchRepository.Insert(model);
         }
-        public async Task DeleteWatch(Guid Id)
+
+        public async Task UpdateWatch(Watch model)
         {
-            await _watchRepository.Delete(Id);
+            await _watchRepository.Update(model);
+        }
+
+        public async Task<IEnumerable<Watch>> WatchActivate(Guid id, Guid activationKey)
+        {
+            return await _watchRepository.WatchActivate(id, activationKey);
         }
     }
 }

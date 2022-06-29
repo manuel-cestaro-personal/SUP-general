@@ -11,5 +11,9 @@ namespace SerenUP.Services.Interfaces
     {
         Task<IEnumerable<Order>> GetAllOrder();
 
+        Task UpdateStatus(Guid id, string status);
+
+        Task<IEnumerable<Order>> GetByUserId(Guid id);
+
     }
 }

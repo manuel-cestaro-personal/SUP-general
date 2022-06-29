@@ -38,11 +38,33 @@ body {
     border: 2px;
 }
 
+.icon_cart {
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    border: 2px;
+}
+
 .icon:hover {
     margin: 60px;
     width: 200px;
     height: 200px;
     border-radius: 10px;
+}
+
+#table_cart {
+    
+}
+
+.tr_cart {
+    height:150px;
+    border-bottom:solid;
+}
+
+.th_cart {
+    width: 150px;
+    text-align: center;
 }
 
 .icon_details {
@@ -61,7 +83,7 @@ body {
 }
 
 .td_cart {
-    min-width: 320px;
+    min-width: 500px;
     min-height: 50px;
     text-align:center;
 }
@@ -80,7 +102,7 @@ body {
 }
 
 #accessori_btn {
-    background-image: url('../Pictures/Accessori/Cinturini/Cinturino_nero.png');
+    background-image: url('../Pictures/Accessori/Cinturino/Nero.png');
 }
 
 

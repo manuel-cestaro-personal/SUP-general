@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
-using SerenUP.ApplicationCore.Entitiess;
+using SerenUP.ApplicationCore.Entities;
 using SerenUP.ApplicationCore.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,13 +19,19 @@ namespace SerenUP.Infrastructure.Data
             _connectionstring = configuration.GetConnectionString("SerenUpDB");
         }
 
+        
+
         public async Task<IEnumerable<Watch>> GetAll()
         {
             const string query = @"
 SELECT
+WatchId,
 Model as Model,
 Price as Price,
-Color as Color
+MacAddress as MacAddress,
+ActivationKey as ActivationKey,
+Color as Color,
+WatchStatus as WatchStatus
 FROM Watch;";
             using var connection = new SqlConnection(_connectionstring);
             return await connection.QueryAsync<Watch>(query);
@@ -33,33 +39,34 @@ FROM Watch;";
 
         public async Task<Watch> GetById(Guid id)
         {
-            const string query = @"
-SELECT
-*
-FROM Watch
-WHERE WatchId = @WatchId;";
-            using var connection = new SqlConnection(_connectionstring);
-            return await connection.QueryFirstOrDefaultAsync<Watch>(query, new { WatchId = id });
+            throw new NotImplementedException();
+
         }
 
-        public async Task<IEnumerable<Watch>> GetWatch(string Model, string Color)
+        public async Task<IEnumerable<Watch>> GetWatch(string model, string color)
         {
             const string query = @"
 SELECT
+WatchId,
 Model as Model,
 Price as Price,
-Color as Color
+MacAddress as MacAddress,
+ActivationKey as ActivationKey,
+Color as Color,
+WatchStatus as WatchStatus
 FROM Watch
 WHERE Model = @Model AND Color = @Color AND OrderId IS NULL;";
             using var connection = new SqlConnection(_connectionstring);
-            return await connection.QueryAsync<Watch>(query, new {Model = Model , Color = Color });
+            return await connection.QueryAsync<Watch>(query, new { Model = model, Color = color });
         }
 
         public async Task Insert(Watch model)
-        {
+        { 
             const string query = @"
-INSERT INTO Watch (Mode, Price, Color)
-VALUES (@model, @Price, @Color)";
+
+INSERT INTO Watch (WatchId, Model, Price, MacAddress, ActivationKey, Color, WatchStatus)
+VALUES (@Id, @Model, @Price, @MacAddress, @ActivationKey, @Color, @WatchStatus)";
+
 
             using var connection = new SqlConnection(_connectionstring);
             await connection.ExecuteAsync(query, model);
@@ -67,14 +74,32 @@ VALUES (@model, @Price, @Color)";
 
         public async Task Update(Watch model)
         {
-             throw new NotImplementedException();
-        }
-        public async Task Delete(Guid Id)
-        {
-            const string query = "DELETE FROM Watch WHERE WatchId = @id";
+            const string query = @"
+UPDATE Watch 
+SET WatchStatus = 1
+WHERE WatchId = @Id";
 
             using var connection = new SqlConnection(_connectionstring);
-            await connection.ExecuteAsync(query, new { Id });
+            await connection.ExecuteAsync(query, new {Id = model.WatchId});
+
+        }
+        public Task Delete(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Watch>> WatchActivate(Guid id, Guid activationKey)
+        {
+            const string query = @"
+SELECT
+WatchId,
+ActivationKey as ActivationKey
+FROM Watch
+WHERE 
+WatchId = @WatchId AND ActivationKey = @ActivationKey";
+
+            using var connection = new SqlConnection(_connectionstring);
+            return await connection.QueryAsync<Watch>(query, new { WatchId= id, ActivationKey = activationKey });
         }
     }
 }

@@ -5,22 +5,54 @@
 
 <div id="orologi_body" class="text-center">
     <h1 class="display-4">E' l'ora giusta per comprare un'orologio!</h1>
-        <div>            
-            <div>
-                <h5 class="gold_series">Orologi serie gold</h5>
-                <h5>L'ideale per avere una traccia completa sulla tua salute</h5>
-                <span><a asp-page="Details/Details_Orologio"><img class="icon" src="../Pictures/Orologi/Gold/Blu.png" /></a></span>
-                <span><a asp-page="Details/Details_Orologio"><img class="icon" src="../Pictures/Orologi/Gold/Bordeaux.png" /></a></span>
-                <span><a asp-page="Details/Details_Orologio"><img class="icon" src="../Pictures/Orologi/Gold/Nero.png" /></a></span>
-                <span><a asp-page="Details/Details_Orologio"><img class="icon" src="../Pictures/Orologi/Gold/Rosso.png" /></a></span>
-            </div>
-             <div>
-                <h5>Orologi serie silver</h5>
-                <h5>Se vuoi monitorare i tuoi parametri di base</h5>
-                <span><a asp-page="Details/Details_Orologio"><img class="icon" src="../Pictures/Orologi/Gold/Blu.png" /></a></span>
-                <span><a asp-page="Details/Details_Orologio"><img class="icon" src="../Pictures/Orologi/Gold/Bordeaux.png" /></a></span>
-                <span><a asp-page="Details/Details_Orologio"><img class="icon" src="../Pictures/Orologi/Gold/Nero.png" /></a></span>
-                <span><a asp-page="Details/Details_Orologio"><img class="icon" src="../Pictures/Orologi/Gold/Rosso.png" /></a></span>
-             </div>
+    <div>
+        <div>
+            <h5 class="gold_series">Orologi serie gold</h5>
+            <h5>L'ideale per avere una traccia completa sulla tua salute</h5>
+            <span>
+                <a asp-page="Details/Details_Orologio" asp-route-Model="Gold" asp-route-Color="Blu">
+                    <img class="icon" src="~/Pictures/Orologi/Gold/Blu.png" />
+                </a>
+            </span>
+            <span>
+                <a asp-page="Details/Details_Orologio" asp-route-Model="Gold" asp-route-Color="Bordeaux">
+                    <img class="icon" src="~/Pictures/Orologi/Gold/Bordeaux.png" />
+                </a>
+            </span>
+            <span>
+                <a asp-page="Details/Details_Orologio" asp-route-Model="Gold" asp-route-Color="Nero">
+                    <img class="icon" src="~/Pictures/Orologi/Gold/Nero.png" />
+                </a>
+            </span>
+            <span>
+                <a asp-page="Details/Details_Orologio" asp-route-Model="Gold" asp-route-Color="Rosso">
+                    <img class="icon" src="~/Pictures/Orologi/Gold/Rosso.png" />
+                </a>
+            </span>
         </div>
+        <div>
+            <h5>Orologi serie silver</h5>
+            <h5>Se vuoi monitorare i tuoi parametri di base</h5>
+            <span>
+                <a asp-page="Details/Details_Orologio" asp-route-Model="Silver" asp-route-Color="Blu">
+                    <img class="icon" src="~/Pictures/Orologi/Silver/Blu.png" />
+                </a>
+            </span>
+            <span>
+                <a asp-page="Details/Details_Orologio" asp-route-Model="Silver" asp-route-Color="Bordeaux">
+                    <img class="icon" src="~/Pictures/Orologi/Silver/Bordeaux.png" />
+                </a>
+            </span>
+            <span>
+                <a asp-page="Details/Details_Orologio" asp-route-Model="Silver" asp-route-Color="Nero">
+                    <img class="icon" src="~/Pictures/Orologi/Silver/Nero.png" />
+                </a>
+            </span>
+            <span>
+                <a asp-page="Details/Details_Orologio" asp-route-Model="Silver" asp-route-Color="Rosso">
+                    <img class="icon" src="~/Pictures/Orologi/Silver/Rosso.png" />
+                </a>
+            </span>
+        </div>
+    </div>
 </div>

@@ -5,9 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SerenUP.ApplicationCore.Interfaces
+namespace SerenUP.Services.Interfaces
 {
-    public interface IOrderStatusRepository : IRepository<OrderStatus, Guid>
+    public interface ICartService
     {
+        Task InsertCart(Cart model);
+        Task<Guid> FindCartId(Guid userId);
+
     }
 }

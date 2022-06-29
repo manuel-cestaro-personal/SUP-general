@@ -6,8 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>1ee19c08-0e98-4dd5-a19e-9ce5e128fca0</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <AssemblyVersion>1.0.0.5</AssemblyVersion>
-    <FileVersion>1.0.0.5</FileVersion>
+    <AssemblyVersion>1.0.0.6</AssemblyVersion>
+    <FileVersion>1.0.0.6</FileVersion>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,7 +29,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\Managment\" />
-    <Folder Include="wwwroot\Pictures\Orologi\Silver\" />
   </ItemGroup>
 
 </Project>

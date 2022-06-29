@@ -8,30 +8,29 @@ using System.Threading.Tasks;
 
 namespace SerenUP.Infrastructure.Data
 {
-    public class OrderStatusRepository : IOrderStatusRepository
+    public class CartWatchRepository : ICartWatchRepository
     {
-
-
-        public Task<IEnumerable<OrderStatus>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<OrderStatus> GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Insert(OrderStatus model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(OrderStatus model)
-        {
-            throw new NotImplementedException();
-        }
         public Task Delete(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CartWatch>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CartWatch> GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Insert(CartWatch model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Update(CartWatch model)
         {
             throw new NotImplementedException();
         }

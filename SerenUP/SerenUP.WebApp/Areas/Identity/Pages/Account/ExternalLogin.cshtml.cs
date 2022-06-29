@@ -2,22 +2,17 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Claims;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
 using SerenUP.WebApp.Data;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Encodings.Web;
 
 namespace SerenUP.WebApp.Areas.Identity.Pages.Account
 {
@@ -30,13 +25,18 @@ namespace SerenUP.WebApp.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
+        private readonly HttpClient _client;
+        private readonly IConfiguration _configuration;
+        private readonly string CartInsert;
+        private readonly string ShopAPI;
 
         public ExternalLoginModel(
             SignInManager<ApplicationUser> signInManager,
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             ILogger<ExternalLoginModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, 
+            IConfiguration configuration)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -44,6 +44,11 @@ namespace SerenUP.WebApp.Areas.Identity.Pages.Account
             _emailStore = GetEmailStore();
             _logger = logger;
             _emailSender = emailSender;
+            _configuration = configuration;
+            _client = new HttpClient();
+            ShopAPI = _configuration.GetSection("HttpUrls")["ShopAPI"];
+            CartInsert = _configuration.GetSection("HttpUrls")["CartInsert"];
+            _client.BaseAddress = new Uri(ShopAPI + CartInsert);
         }
 
         /// <summary>
@@ -104,7 +109,7 @@ namespace SerenUP.WebApp.Areas.Identity.Pages.Account
             [Display(Name = "Address")]
             public string Address { get; set; }
         }
-        
+
         public IActionResult OnGet() => RedirectToPage("./Login");
 
         public IActionResult OnPost(string provider, string returnUrl = null)
@@ -199,6 +204,27 @@ namespace SerenUP.WebApp.Areas.Identity.Pages.Account
                             pageHandler: null,
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
+
+                        try
+                        {
+                            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, "");
+                            requestMessage.Content = JsonContent.Create(userId);
+                            HttpResponseMessage response = await _client.SendAsync(requestMessage);
+                            if (response.IsSuccessStatusCode)
+                            {
+                                _logger.LogInformation($"WebApp: Register page - {response.StatusCode} \n{response.RequestMessage.Method} \n{response.RequestMessage.RequestUri} \n- {DateTime.Now} - {userId}");
+                            }
+                            else
+                            {
+                                _logger.LogInformation($"WebApp: Register page - {response.StatusCode} \n{response.RequestMessage.Method} \n{response.RequestMessage.RequestUri} \n- {DateTime.Now} - {userId}");
+                                return RedirectToPage("/Index");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            _logger.LogInformation($"WebApp: Register page - {ex.Message} - {DateTime.Now} - {userId}");
+                            return RedirectToPage("/Index");
+                        }
 
                         await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                             $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");

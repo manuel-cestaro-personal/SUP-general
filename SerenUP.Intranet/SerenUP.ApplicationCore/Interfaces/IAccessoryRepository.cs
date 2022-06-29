@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace SerenUP.ApplicationCore.Interfaces
 {
-    public interface IAccessoryRepository : IRepository<Accessory, Guid>
+    public interface IAccessoryRepository
     {
+        Task<Accessory> GetAccessory(string name, string color);
+        Task<IEnumerable<Accessory>> GetAll();
+        Task<Accessory> GetById(Guid id);
+        Task Insert(Accessory model);
+        Task Update(Accessory model);
+        Task Delete(Guid id);
     }
 }

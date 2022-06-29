@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.DotNet.Scaffolding.Shared.Messaging;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SerenUP.WebApp.Pages
 {

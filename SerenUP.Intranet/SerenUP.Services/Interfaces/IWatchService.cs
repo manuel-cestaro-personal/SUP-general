@@ -1,4 +1,4 @@
-﻿using SerenUP.ApplicationCore.Entitiess;
+﻿using SerenUP.ApplicationCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,11 @@ namespace SerenUP.Services.Interfaces
     public interface IWatchService
     {
         Task<IEnumerable<Watch>> GetAllWatch();
+        Task<IEnumerable<Watch>> GetWatch(string model, string color);
         Task InsertWatch(Watch model);
-        Task DeleteWatch(Guid Id);
-        Task<IEnumerable<Watch>> GetWatch(string Model, string Color);
+        Task UpdateWatch(Watch model);
+        Task<IEnumerable<Watch>> WatchActivate(Guid id, Guid activationKey);
+        
 
     }
 }

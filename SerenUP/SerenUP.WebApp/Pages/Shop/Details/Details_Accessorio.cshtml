@@ -1,4 +1,46 @@
-﻿@page
+﻿@page "{name}/{color}"
 @model SerenUP.WebApp.Pages.Shop.Details.Details_AccessorioModel
 @{
 }
+
+<div>
+    <div>
+        <span>
+            <div style="display:inline;">
+                <a asp-page="Details/Details_Accessorio">
+                    <img class="icon_details" src=@Model.Accessory.Link>
+                </a>
+            </div>
+        </span>
+        <span>
+            <div class="text_details" style="display:inline;">
+                <table style="display:inline; margin-bottom:100px; border:1px;">
+                    <tr>
+                        <td><a asp-page=""><button class="td_cart">
+                            <h5>Accessorio: @Model.Accessory.Name</h5>
+                            <h5>Colore: @Model.Accessory.Color</h5>
+                            <h5>Consegna garantita entro il: @Model.ShipmentDate</h5>
+                            <h5>@Model.Accessory.Price €</h5>
+                        </button></a></td>
+                    </tr>
+                    <tr>
+                        <td><a asp-page=""><button class="td_cart">ACQUISTA</button></a></td>
+                    </tr>
+                    <tr>
+                        <td><a asp-page=""><button class="td_cart">AGGIUNGI AL CARRELLO</button></a></td>
+                    </tr>
+                </table>    
+            </div>
+        </span>
+    </div>
+
+    <div class="text_details"><span>DESCRIZIONE</span></div>
+    <div class="text_details">
+        <span>
+           @Model.Accessory.Name di colore @Model.Accessory.Color<br />
+           Personalizza la tua esperienza!<br />
+           @Model.Accessory.Description
+        </span>
+    </div>
+
+</div>
