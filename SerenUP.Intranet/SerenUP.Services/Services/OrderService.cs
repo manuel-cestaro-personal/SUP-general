@@ -22,5 +22,15 @@ namespace SerenUP.Services.Services
         {
             return await _orderRepository.GetAll();
         }
+
+        public async Task UpdateStatus(Guid id, string status)
+        {
+            await _orderRepository.UpdateStatus(id, status);
+        }
+
+        public async Task<IEnumerable<Order>> GetByUserId(Guid id)
+        {
+           return await _orderRepository.GetByUserId(id);
+        }
     }
 }
