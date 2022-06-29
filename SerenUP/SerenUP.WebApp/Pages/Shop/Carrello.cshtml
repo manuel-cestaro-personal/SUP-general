@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col"style="border: solid 1 green">
-                <form method="post" asp-page="cart" asp-page-handler="update">
+              
         <table id="table_cart">
             @*<tr class="tr_cart" style="height:50px;">
                 <th class="th_cart">Nome</th>
@@ -40,16 +40,15 @@
             </tr>*@
             @foreach (var accessory in Model.AccessoryList)
             {
-                <tr align="center">
+                <tr align="center" class="tr_cart" style="height:50px;">
                     @*<td align="center">
                         <a asp-page="cart" asp-page-handler="delete" asp-route-id="@accessory.Product.Id">X</a>
                     </td>*@
                     <td>@accessory.Name</td>
                     <td><img src="@accessory.Link" width="120" height="100" /></td>
                     <td>$@accessory.Price</td>
-                    <td><input type="number" name="quantities" value="@accessory.Quantity" min="1" style="width: 50px;" /></td>
                     <td>
-                        $@(accessory.Price * accessory.Quantity)
+                        $@(accessory.Price)
                     </td>
                 </tr>
             }
@@ -62,7 +61,6 @@
                     <td>@watch.Model</td>
                     <td><img src="@watch.Link" width="120" height="100" /></td>
                     <td>$@watch.Price</td>
-                    <td><input type="number" name="quantities" value="1" min="1" style="width: 50px;" /></td>
                     <td>
                         $@(watch.Price)
                     </td>
@@ -73,18 +71,19 @@
                 <td align="center">@*$@Model.Total*@</td>
             </tr>
         </table>
-            </form>
-            </div>
-            <div class="col" style="text-align:center;">
-                <h3>Totale</h3>
-                <br />
-                <h5>Subtotale: 50€</h5>
-                <h5>Spedizione: 0€</h5>
-                <h5>Totale iva inclusa: 50€</h5>
-                <a asp-page="/Index"><button class="td_cart" style="margin-top:20px">Continua lo shopping</button></a>
-                <a asp-page=""><button class="td_cart" style="margin-top:15px">ACQUISTA</button></a>
-                   
            
+            </div>
+              <form method="post" asp-page="cart" asp-page-handler="update">
+                <div class="col" style="text-align:center;">
+                    <h3>Totale</h3>
+                    <br />
+                    <h5>Subtotale: 50€</h5>
+                    <h5>Spedizione: 0€</h5>
+                    <h5>Totale iva inclusa: 50€</h5>
+                    <a asp-page="/Index"><button class="td_cart" style="margin-top:20px">Continua lo shopping</button></a>
+                    <a asp-page=""><button class="td_cart" style="margin-top:15px">ACQUISTA</button></a>
+                   
+            </form>
             </div>
         </div>
     </div>
