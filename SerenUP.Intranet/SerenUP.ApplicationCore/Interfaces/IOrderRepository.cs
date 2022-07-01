@@ -10,8 +10,9 @@ namespace SerenUP.ApplicationCore.Interfaces
     public interface IOrderRepository
     {
         Task<IEnumerable<Order>> GetAll();
-        Task<Order> GetById(Guid id);
+        Task<IEnumerable<Order>> GetByUserId(Guid id);
         Task Insert(Order model);
+        Task UpdateStatus(Guid id, string status);
         Task Update(Order model);
         Task Delete(Guid id);
     }

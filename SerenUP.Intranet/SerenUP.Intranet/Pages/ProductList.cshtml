@@ -1,0 +1,1109 @@
+﻿@page
+@model SerenUP.Intranet.Pages.ProductListModel
+@{
+    ViewData["Title"] = "Lista Prodotti Magazzino";
+}
+
+
+
+@*sistemare la funzione js con i campi giusti  per attivare o meno il bottone disponibilità in base alla quantità*@
+
+<head><script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script></head>
+<script src="http://www.w3.org/2000/svg" crossorigin="anonymous"></script>
+<h1 class="">@ViewData["Title"]</h1>
+
+
+
+<div class="container py-5">
+    <div class="row text-center text-white mb-8">
+        <div class="col-lg-7 mx-auto">
+            <h1 class="display-4">Product List</h1>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-lg-12 mx-auto">
+
+            
+
+      <!-- List group-->
+            <ul class="list-group shadow">
+                <!-- list group item-->
+                <li class="list-group-item"> 
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-9 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino blu</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000001</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-4">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+
+
+                </li> 
+
+                <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino rosso</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000002</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                               <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+
+
+                </li> 
+
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino verde</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000003</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                               <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End --> 
+
+
+                </li> 
+
+
+                <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                               <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                           <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                           <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                              <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                               <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                              <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                               <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                               <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                               <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile@*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+                    <!-- list group item-->
+                <li class="list-group-item">
+                    <!-- Custom content-->
+                    @*<div class="immagine-prodotto">*@
+                    <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+                   
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-5 offset-1">
+                            <div class="elementi-tabella col-lg-7">
+                               <div class="col-lg-8 offset-2"">
+                           <h5 class="col-md-2 offset-2 ">Nome</h5>
+                            <h5 class="col-lg-12 offset-2 font-uppercase">Cinturino gold</h5>
+                            </div>
+
+                             <div class="col-lg-5 offset-1">
+                           <h5 class="col-lg-12 ">Codice articolo</h5>
+                            <h5 class="col-md-2 font-uppercase">0000004</h5>
+                            </div>
+
+                             <div class="col-md-3">
+                           <h5 class="col-md-2 offset-5">Modello</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
+                            </div>
+
+                              <div class="col-md-3 offset-2">
+                           <h5 class="col-md-2 offset-5">Quantità</h5>
+                            <h5 class="col-md-2 offset-5 font-uppercase" >numero</h5>
+                            </div>
+                            <div class="offset-5">
+
+                                 <div class="btn-disponibilita " id="disponibile">
+                                <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
+                           </div>
+                            <div>
+                                 <div class="btn-indisponibilita" id="non-disponibile">
+                                <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
+                           </div>
+                           
+                           </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+
+
+
+
+                </li> 
+
+
+                </ul>
+                </div>
+                </div>
+                </div>
+
+
+
+
+
+                <script>
+                    //document.getElementById().style.visibility = "visible"; // show
+                     
+
+                    if ({{quantita}}<=0) {
+
+                    $("div.#disponibile").hide;  // hide
+                    $("div.#non-disponibile").show; // show
+                    }
+
+                    else {
+                    $("div.#disponibile").show;  // hide
+                    $("div.#non-disponibile").hide; // show
+
+                    }
+
+                </script>

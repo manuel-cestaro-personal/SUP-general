@@ -145,7 +145,7 @@ namespace SerenUP.ShopAPI.Controllers
         }
         [HttpPut("UpdateWatchStatus")]
 
-        public async Task<IActionResult> UpdateWatch(Watch model) //deve essere passato solo lo stato dell'orologio!!!
+        public async Task<IActionResult> UpdateWatch(Guid id, bool status) 
         {
             try
             {
@@ -155,7 +155,7 @@ namespace SerenUP.ShopAPI.Controllers
                 }
                 else
                 {
-                    await _watchService.UpdateWatch(model);
+                    await _watchService.UpdateWatch(id, status);
                 }
                 return Ok(new
                 {
@@ -197,7 +197,8 @@ namespace SerenUP.ShopAPI.Controllers
                     //_logger.LogInformation("API GetAllAccessory - " + message + " - " + DateTime.Now);
                     Watch watch = new Watch();
                     watch.WatchId = id;
-                    await _watchService.UpdateWatch(watch);
+                    watch.WatchStatus = true;
+                    await _watchService.UpdateWatch(watch.WatchId, watch.WatchStatus);
                     return Ok(await _watchService.WatchActivate(id, activationKey)); // 200
                     
                 }

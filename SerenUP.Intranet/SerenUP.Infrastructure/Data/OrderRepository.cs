@@ -34,9 +34,20 @@ FROM [Order];";
             return await connection.QueryAsync<Order>(query);
         }
 
-        public async Task<Order> GetById(Guid id)
+        public async Task<IEnumerable<Order>> GetByUserId(Guid id)
         {
-            throw new NotImplementedException();
+            const string query = @"
+SELECT
+        OrderId,
+        UserId,
+        Status,
+        OrderAddress,
+        Date,
+        OrderNumber
+FROM [Order]
+WHERE UserId = @UserId;";
+            using var connection = new SqlConnection(_connectionstring);
+            return await connection.QueryAsync<Order>(query, new { UserId = id });
         }
 
         public async Task Insert(Order model)
@@ -44,11 +55,22 @@ FROM [Order];";
             throw new NotImplementedException();
         }
 
-        public async Task Update(Order model)
+        public async Task UpdateStatus(Guid id, string status)
+        {
+            const string query = @"
+UPDATE [Order] 
+SET Status = @Status
+WHERE OrderId = @Id;";
+
+            using var connection = new SqlConnection(_connectionstring);
+            await connection.ExecuteAsync(query, new {Id = id, Status = status});
+        }
+        public async Task Delete(Guid id)
         {
             throw new NotImplementedException();
         }
-        public async Task Delete(Guid id)
+
+        public Task Update(Order model)
         {
             throw new NotImplementedException();
         }

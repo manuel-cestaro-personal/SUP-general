@@ -30,9 +30,6 @@ builder.Services.AddSingleton<ICartAccessoryRepository, CartAccessoryRepository>
 builder.Services.AddSingleton<ICartWatchService, CartWatchService>();
 builder.Services.AddSingleton<ICartWatchRepository, CartWatchRepository>();
 
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
