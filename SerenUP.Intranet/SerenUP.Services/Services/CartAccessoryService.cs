@@ -18,9 +18,21 @@ namespace SerenUP.Services.Services
             _cartAccessoryRepository = cartAccessoryRepository;
         }
 
+        
+
         public async Task<IEnumerable<Accessory>> GetByCartId(Guid id)
         {
             return await _cartAccessoryRepository.GetByCartId(id);
+        }
+
+        public Task UpdateCartAccessory(Guid id, int quantity)
+        {
+            return _cartAccessoryRepository.Update(id, quantity);
+        }
+
+        public Task DeleteAccessory(Guid id)
+        {
+            return _cartAccessoryRepository.Delete(id);
         }
     }
 }

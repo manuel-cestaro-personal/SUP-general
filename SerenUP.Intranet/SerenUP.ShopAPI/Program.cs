@@ -27,6 +27,11 @@ builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
 builder.Services.AddSingleton<ICartAccessoryService, CartAccessoryService>();
 builder.Services.AddSingleton<ICartAccessoryRepository, CartAccessoryRepository>();
 
+builder.Services.AddSingleton<ICartWatchService, CartWatchService>();
+builder.Services.AddSingleton<ICartWatchRepository, CartWatchRepository>();
+
+
+
 
 var app = builder.Build();
 

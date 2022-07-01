@@ -8,7 +8,6 @@ namespace SerenUP.ApplicationCore.Interfaces
         Task<Cart> GetById(Guid id);
         Task Insert(Cart model);
         Task Update(Cart model);
-        Task Delete(Guid id);
         Task<Cart> GetByUserId(Guid id);
     }
 }
