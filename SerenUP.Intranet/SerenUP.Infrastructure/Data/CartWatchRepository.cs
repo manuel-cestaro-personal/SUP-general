@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using Microsoft.Extensions.Configuration;
 using SerenUP.ApplicationCore.Entities;
 using SerenUP.ApplicationCore.Interfaces;
@@ -23,7 +23,7 @@ namespace SerenUP.Infrastructure.Data
 
         public Task Delete(Guid Id)
         {
-            throw new NotImplementedException();
+            _connectionstring = configuration.GetConnectionString("SerenUpDB");
         }
 
         public Task<IEnumerable<CartWatch>> GetAll()
@@ -62,6 +62,14 @@ namespace SerenUP.Infrastructure.Data
         public Task Update(CartWatch model)
         {
             throw new NotImplementedException();
+        }
+        public async Task Delete(Guid id)
+        {
+            const string query = @"
+DELETE FROM CartWatch
+WHERE CartWatchId = @Id";
+            using var connection = new SqlConnection(_connectionstring);
+            await connection.ExecuteAsync(query, new { Id = id });
         }
     }
 }

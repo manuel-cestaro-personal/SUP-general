@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
 using SerenUP.ApplicationCore.Entities;
 using SerenUP.Services.Interfaces;
 
 namespace SerenUP.ShopAPI.Controllers
-{ 
+
     [Route("api/[controller]")]
     [ApiController]
     public class CartWatchController : Controller
@@ -67,6 +69,35 @@ namespace SerenUP.ShopAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogInformation("API CartWatch GetWatchByUser - " + ex.Message + " - " + DateTime.Now);
+
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = "SERVER ERROR! Contact the system administrator."
+                });
+            }
+        }
+        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteWatch(Guid id)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogInformation("API CartWatch - " + ModelState + " - " + DateTime.Now);
+                    return BadRequest(ModelState); // 400
+                }
+                else
+                {
+                    await _cartWatchService.DeleteWatch(id);
+                    return Ok();  //200
+                }
+
+            }
+            catch(Exception ex)
+            {
+                _logger.LogInformation("API CartWatch - " + ex.Message + " - " + DateTime.Now);
                 return StatusCode(500, new
                 {
                     Result = false,

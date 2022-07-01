@@ -1,4 +1,4 @@
-﻿using SerenUP.ApplicationCore.Entities;
+using SerenUP.ApplicationCore.Entities;
 using SerenUP.ApplicationCore.Interfaces;
 using SerenUP.Services.Interfaces;
 using System;
@@ -18,6 +18,11 @@ namespace SerenUP.Services.Services
             _cartWatchRepository = cartWatchRepository;
         }
 
+        public async Task DeleteWatch(Guid id)
+        {
+            await _cartWatchRepository.Delete(id);
+        }
+        
         public async Task<IEnumerable<Watch>> GetByCartId(Guid id)
         {
             return await _cartWatchRepository.GetWatchByCartId(id);

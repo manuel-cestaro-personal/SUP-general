@@ -13,7 +13,7 @@ namespace SerenUP.ApplicationCore.Interfaces
         Task<IEnumerable<CartAccessory>> GetAll();
         Task<CartAccessory> GetById(Guid id);
         Task Insert(CartAccessory model);
-        Task Update(CartAccessory model);
+        Task Update(Guid id, int quantity);
         Task Delete(Guid id);
     }
 }

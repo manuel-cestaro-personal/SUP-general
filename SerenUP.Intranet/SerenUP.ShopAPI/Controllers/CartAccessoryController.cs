@@ -74,5 +74,62 @@ namespace SerenUP.ShopAPI.Controllers
                 });
             }
         }
+
+        [HttpPut("UpdateQuantity/{id}/{quantity}")]
+        public async Task<IActionResult> UpdateQuantityCartAccessory(Guid id, int quantity)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogInformation("API CartAccessory - " + ModelState + " - " + DateTime.Now);
+                    return BadRequest(ModelState); // 400
+                }
+                else
+                {
+                    await _cartAccessoryService.UpdateCartAccessory(id, quantity);
+                }
+                return Ok(new
+                {
+                    Result = true
+                }); // 200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAccessory(Guid id)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogInformation("API CartAccessory - " + ModelState + " - " + DateTime.Now);
+                    return BadRequest(ModelState); // 400
+                }
+                else
+                {
+                    await _cartAccessoryService.DeleteAccessory(id);
+                    return Ok();  //200
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("API CartAccessory - " + ex.Message + " - " + DateTime.Now);
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = "SERVER ERROR! Contact the system administrator."
+                });
+            }
+        }
     }
 }
