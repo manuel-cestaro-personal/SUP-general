@@ -18,7 +18,7 @@ body {
 }
 
 
-@media(min-width: 1200px) {
+@media(min-width: 600px) {
     .logo {
         width: 200px;
         height: 200px;
@@ -125,7 +125,8 @@ body {
     display: inline-block;
 }
 
-.font-uppercase {
+    .font-uppercase {
+    }
 
 .btn-input {
     background-color: #e2a751;
