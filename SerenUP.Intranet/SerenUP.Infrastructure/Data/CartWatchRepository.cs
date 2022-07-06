@@ -21,11 +21,6 @@ namespace SerenUP.Infrastructure.Data
             _connectionstring = _configuration.GetConnectionString("SerenUpDB");
         }
 
-        public Task Delete(Guid Id)
-        {
-            _connectionstring = configuration.GetConnectionString("SerenUpDB");
-        }
-
         public Task<IEnumerable<CartWatch>> GetAll()
         {
             throw new NotImplementedException();
