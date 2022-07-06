@@ -8,13 +8,15 @@ using SerenUP.Intranet.Data;
 
 namespace SerenUP.Intranet.Pages
 {
-    [Authorize]
+    //[Authorize]
     public class ProductListModel : PageModel
     {
         private readonly ILogger<ProductListModel> _logger;
         private readonly HttpClient _client;
         private readonly IConfiguration _configuration;
         private readonly string ShopAPI;
+        private readonly string GetAccessory;
+        private readonly string GetWatch;
 
         public ProductListModel(UserManager<ApplicationUser> userManager, ILogger<ProductListModel> logger, IConfiguration configuration)
         {
@@ -22,6 +24,8 @@ namespace SerenUP.Intranet.Pages
             _client = new HttpClient();
             _configuration = configuration;
             ShopAPI = _configuration.GetSection("HttpUrls")["ShopAPI"];
+            GetAccessory = _configuration.GetSection("HttpUrls")["GetAllAccessory"];
+            GetWatch = _configuration.GetSection("HttpUrls")["GetAllWatch"];
         }
         public IEnumerable<Accessory> AccessoryList { get; set; }
         public IEnumerable<Watch> WatchList { get; set; }
@@ -30,7 +34,7 @@ namespace SerenUP.Intranet.Pages
         {
             try
             {
-                Uri path1 = new Uri(ShopAPI + WatchList);
+                Uri path1 = new Uri(ShopAPI + GetWatch);
                 HttpRequestMessage requestMessage1 = new HttpRequestMessage(HttpMethod.Get, path1);
                 HttpResponseMessage response1 = await _client.SendAsync(requestMessage1);
                 if (response1.IsSuccessStatusCode)
@@ -52,7 +56,7 @@ namespace SerenUP.Intranet.Pages
                     return RedirectToPage("/Index");
                 }
 
-                Uri path2 = new Uri(ShopAPI + AccessoryList);
+                Uri path2 = new Uri(ShopAPI + GetAccessory);
                 HttpRequestMessage requestMessage2 = new HttpRequestMessage(HttpMethod.Get, path2);
                 HttpResponseMessage response2 = await _client.SendAsync(requestMessage2);
                 if (response2.IsSuccessStatusCode)
@@ -66,7 +70,7 @@ namespace SerenUP.Intranet.Pages
                             accessory.Link = "/Pictures/Accessori/" + accessory.Name + "/" + accessory.Color + ".png";
                         }
                     }
-                    _logger.LogInformation($"WebApp: Magazzino - {response2.StatusCode} \n{response2.RequestMessage.Method} \n{response2.RequestMessage.RequestUri} \n- {DateTime.Now}}");
+                    _logger.LogInformation($"WebApp: Magazzino - {response2.StatusCode} \n{response2.RequestMessage.Method} \n{response2.RequestMessage.RequestUri} \n- {DateTime.Now}");
                 }
                 else
                 {
