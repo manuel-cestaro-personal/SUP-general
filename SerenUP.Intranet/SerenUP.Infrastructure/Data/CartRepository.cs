@@ -40,11 +40,6 @@ FROM Watch;";
         {
             throw new NotImplementedException();
         }
-        public Task Delete(Guid Id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task Insert(Cart model)
         {
             const string query = @"

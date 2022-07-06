@@ -21,10 +21,7 @@ namespace SerenUP.Infrastructure.Data
             _connectionstring = _configuration.GetConnectionString("SerenUpDB");
         }
 
-        public Task Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public Task<IEnumerable<CartAccessory>> GetAll()
         {
@@ -58,9 +55,23 @@ namespace SerenUP.Infrastructure.Data
             throw new NotImplementedException();
         }
 
-        public Task Update(CartAccessory model)
+        public async Task Update(Guid id, int quantity)
         {
-            throw new NotImplementedException();
+            const string query = @"
+UPDATE CartAccessory
+SET Quantity = @Quantity
+WHERE CartAccessoryId = @Id
+";
+            using var connection = new SqlConnection(_connectionstring);
+            await connection.ExecuteAsync(query, new { Id = id, Quantity = quantity});
+        }
+        public async Task Delete(Guid id)
+        {
+            const string query = @"
+DELETE FROM CartAccessory
+WHERE CartAccessoryId = @Id";
+            using var connection = new SqlConnection(_connectionstring);
+            await connection.ExecuteAsync(query, new { Id = id });
         }
     }
 }

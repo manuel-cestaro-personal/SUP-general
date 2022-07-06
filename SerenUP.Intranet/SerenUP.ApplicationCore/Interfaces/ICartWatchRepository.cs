@@ -10,6 +10,7 @@ namespace SerenUP.ApplicationCore.Interfaces
     public interface ICartWatchRepository
     {
         Task<IEnumerable<CartWatch>> GetAll();
+        Task<IEnumerable<Watch>> GetWatchByCartId(Guid id);
         Task<CartWatch> GetById(Guid id);
         Task Insert(CartWatch model);
         Task Update(CartWatch model);
