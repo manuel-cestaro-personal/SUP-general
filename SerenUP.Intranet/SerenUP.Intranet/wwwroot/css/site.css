@@ -111,22 +111,55 @@ body {
     margin-top: 20px;
 }
 
-.barra-sopra {
-    background: url(../Immagini/Logo.png);
-}
-
 .label-remember {
     padding-top:15px;
 }
 
-/*Personalizzazione pagina LOGIN - FINE*/
 
-/*Personalizzazione pagina LISTA PRODOTTI - INIZIO*/
+/*RESET PASSWORD - INIZIO*/
 
-.elementi-tabella {
-    display: inline-flex;
-    vertical-align: middle;
+ .subtitle-reset {
+        background-color: purple;
+        color: white;
+        padding: 20px;
+    }
+
+.linea-divisoria {
+    color: purple;
 }
+
+
+    button.btn-primary,
+    button.btn-primary:hover,
+    button.btn-primary:active,
+    button.btn-primary:focus,
+    button.btn-primary::selection,
+    button.btn-primary::before,
+    button.btn-primary::after,
+    button.btn-primary[selected],
+    btn {
+        margin-top: 20px;
+        background-color: purple;
+        /*border: none;*/
+        border: hidden;
+        border-radius: 10px;
+        transition: none;
+        text-decoration:none;
+        box-decoration-break:unset;
+        
+    }
+
+   
+    .input#Input_Email {
+        border-radius: 10px;
+    }
+    /*RESET PASSWORD - FINE*/
+    /*Personalizzazione pagina LOGIN - FINE*/
+    /*Personalizzazione pagina LISTA PRODOTTI - INIZIO*/
+    .elementi-tabella {
+        display: inline-flex;
+        vertical-align: middle;
+    }
 
 .media.align-items-lg-center.flex-column.flex-lg-row.p-3 {
     display: inline-block;

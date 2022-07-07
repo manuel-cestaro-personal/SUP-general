@@ -17,12 +17,13 @@
     </div>
 
     <div class="container-body mt-4">
+        <a class="nav-link text-dark" asp-area="" asp-page="/ProductList"> Back </a> 
         <div class="row r3">
-            <div class="col-md-7"> <img src="https://i.imgur.com/KFojDGa.jpg" width="70%" height="75%"> </div>
+            <div class="col-md-7"><img src="https://i.imgur.com/KFojDGa.jpg" width="70%" height="75%"></div>
 
 
             <div class="col-md-5 p-0 klo">
-                <div class="col-md-5">
+                <div class="col-md-5 offset-1">
                     <div class="btn-disponibilita  " id="disponibile">
                         <p>Disponibile <i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
                     </div>
@@ -39,17 +40,20 @@
                     <ul>
                         <div class="col-md-6">
 
-                        <li> <h5>Nome</h5><p>Cinturino gold</p></li>
-                        <li><h5>Codice articolo</h5><p>0000004</p></li>
-                        <li><h5>Modello</h5><p>modello</p></li>
-                        <li><h5>Modello</h5><p>modello</p></li>
-                        <li><h5>Quantità</h5><p>numero</p></li>
+                        <li><label class="col-md-2">Nome</label>
+                        <input type="text"  name="first" class="col-lg-12 font-uppercase " placeholder="{{Nome}}"/></li>
+
+                         <li><label class="col-md-2">Codice articolo</label>
+                        <input type="text"  name="second" class="col-lg-12 font-uppercase " placeholder="{{000004}}"/></li>
+
+                         <li><label class="col-md-2">Modello</label>
+                        <input type="text"  name="third" class="col-lg-12 font-uppercase " placeholder="{{modello}}"/></li>
 
                        </div>
                     </ul>
                 </div>
 
-            <div class="col-6">
+            <div class="col-6 descrizione-label offset-1">
                 <textarea placeholder="descrizione" class="col-12"></textarea>
             </div>
         </div>
