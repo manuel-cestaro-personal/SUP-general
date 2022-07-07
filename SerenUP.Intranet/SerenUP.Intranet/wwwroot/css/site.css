@@ -97,18 +97,35 @@ body {
         margin-top: 20px;
     }
 
-    .barra-sopra {
-        background: url(../Immagini/Logo.png);
+.label-remember {
+    padding-top:15px;
+}
+
+
+/*RESET PASSWORD - INIZIO*/
+
+ .subtitle-reset {
+        background-color: purple;
+        color: white;
+        padding: 20px;
     }
 
-    /*Personalizzazione pagina LOGIN - FINE*/
+.linea-divisoria {
+    color: purple;
+}
 
-    /*Personalizzazione pagina LISTA PRODOTTI - INIZIO*/
+.label-remember {
+    padding-top:15px;
+}
 
-    .elementi-tabella {
-        display: inline-flex;
-        vertical-align: middle;
-    }
+/*Personalizzazione pagina LOGIN - FINE*/
+
+/*Personalizzazione pagina LISTA PRODOTTI - INIZIO*/
+
+.elementi-tabella {
+    display: inline-flex;
+    vertical-align: middle;
+}
 
     .media.align-items-lg-center.flex-column.flex-lg-row.p-3 {
         display: inline-block;
