@@ -1,19 +1,20 @@
-﻿@page "{name}/{color}"
+﻿@page "{model}/{color}"
 @model SerenUP.Intranet.Pages.WatchDetailModel
 @{
 }
 
 
 <div>
+
     <div>
-        <span>
+
             <div style="display:inline">
                 <a asp-page="Details/WatchDetail">
                     <img class="icon_details" src=@Model.Link>
                 </a>
             </div>
-        </span>
-        <span>
+
+
             <div class="text_details" style="display:inline">
                 <table style="display:inline; margin-bottom:100px; border:1px">
                     <tr>
@@ -29,6 +30,8 @@
                     </tr>
                 </table>
             </div>
-        </span>
+
+
     </div>
+
 </div>

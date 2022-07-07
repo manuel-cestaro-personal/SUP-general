@@ -35,7 +35,7 @@
                         <td>1</td>
                         <td>
                             <button type="button" class="btn btn-primary align-middle mt-5">
-                                <a asp-page="/Details/WatchDetail" asp-route-Name="@watch.Model" asp-route-Color="@watch.Color">
+                                <a asp-page="/Details/WatchDetail" asp-route-Model="@watch.Model" asp-route-Color="@watch.Color">
                                     Modifica
                                 </a>
                             </button>
@@ -54,7 +54,7 @@
                         <td>@accessory.Quantity</td>
                         <td>
                             <button type="button" class="btn btn-primary align-middle mt-5">
-                                <a asp-page="/Details/AccessoryDetail" asp-route-Model="@accessory.Name" asp-route-Color="@accessory.Color">
+                                <a asp-page="/Details/AccessoryDetail" asp-route-Model="@accessory.Name" asp-route-Color="@accessory.Color" >
                                     Modifica
                                 </a>
                             </button>
