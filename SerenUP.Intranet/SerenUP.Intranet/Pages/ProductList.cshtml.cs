@@ -48,11 +48,11 @@ namespace SerenUP.Intranet.Pages
                             watch.Link = "/Pictures/Orologi/" + watch.Model + "/" + watch.Color + ".png";
                         }
                     }
-                    _logger.LogInformation($"WebApp: Magazzino - {response1.StatusCode} \n{response1.RequestMessage.Method} \n{response1.RequestMessage.RequestUri} \n- {DateTime.Now}");
+                    _logger.LogInformation($"WebApp: Magazzino - {response1.StatusCode} \n{response1.RequestMessage.Method} \n{response1.RequestMessage.RequestUri} \n- {DateTime.Now}  - {User.Identity.Name}");
                 }
                 else
                 {
-                    _logger.LogInformation($"WebApp: Magazzino - {response1.StatusCode} \n{response1.RequestMessage.Method} \n{response1.RequestMessage.RequestUri} \n- {DateTime.Now}");
+                    _logger.LogInformation($"WebApp: Magazzino - {response1.StatusCode} \n{response1.RequestMessage.Method} \n{response1.RequestMessage.RequestUri} \n- {DateTime.Now}  - {User.Identity.Name}");
                     return RedirectToPage("/Index");
                 }
 
@@ -70,11 +70,11 @@ namespace SerenUP.Intranet.Pages
                             accessory.Link = "/Pictures/Accessori/" + accessory.Name + "/" + accessory.Color + ".png";
                         }
                     }
-                    _logger.LogInformation($"WebApp: Magazzino - {response2.StatusCode} \n{response2.RequestMessage.Method} \n{response2.RequestMessage.RequestUri} \n- {DateTime.Now}");
+                    _logger.LogInformation($"WebApp: Magazzino - {response2.StatusCode} \n{response2.RequestMessage.Method} \n{response2.RequestMessage.RequestUri} \n- {DateTime.Now}  - {User.Identity.Name}");
                 }
                 else
                 {
-                    _logger.LogInformation($"WebApp: Magazzino - {response2.StatusCode} \n{response2.RequestMessage.Method} \n{response2.RequestMessage.RequestUri} \n- {DateTime.Now}");
+                    _logger.LogInformation($"WebApp: Magazzino - {response2.StatusCode} \n{response2.RequestMessage.Method} \n{response2.RequestMessage.RequestUri} \n- {DateTime.Now}  - {User.Identity.Name}");
                     return RedirectToPage("/Index");
                 }
 
@@ -82,7 +82,7 @@ namespace SerenUP.Intranet.Pages
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"WebApp: Magazzino - {ex.Message} - {DateTime.Now}");
+                _logger.LogInformation($"WebApp: Magazzino - {ex.Message} - {DateTime.Now}  - {User.Identity.Name}");
                 return RedirectToPage("/Index");
             }
         }

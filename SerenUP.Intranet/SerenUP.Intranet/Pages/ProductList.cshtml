@@ -5,81 +5,65 @@
 }
 <html>
 <body>
-    <head>
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-        <script src="http://www.w3.org/2000/svg" crossorigin="anonymous"></script>
-    </head>
-
     <h1 class="">@ViewData["Title"]</h1>
 
-    <div class="container py-5">
+    <div class="container">
 
-        <div class="row text-center text-white mb-8">
+        <div class="row text-center">
             <div class="col-lg-7 mx-auto">
-                <h1 class="display-4">Product List</h1>
+                <h1 class="display-4">Lista prodotti</h1>
             </div>
         </div>
 
-        @foreach (var accessory in Model.AccessoryList)
-        {
-            <div class="row">
-                <div class="col-lg-12 mx-auto">
-                    <ul class="list-group shadow">
-                        <li class="list-group-item">
-                            <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="100" class="ml-lg-5 order-1 order-lg-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Colore</th>
+                    <th scope="col">Quantità</th>
+                </tr>
+            </thead>
 
+            @foreach (var watch in Model.WatchList)
+            {
+                <tbody>
+                    <tr>
+                        <th scope="row"><img src="@watch.Link" width="150" height="150" /></th>
+                        <td>@watch.Model</td>
+                        <td>@watch.Color</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="btn btn-primary align-middle mt-5">
+                                <a asp-page="/Details/WatchDetail" asp-route-Name="@watch.Model" asp-route-Color="@watch.Color">
+                                    Modifica
+                                </a>
+                            </button>
 
+                        </td>
+                    </tr>
+                </tbody>
+            }
+            @foreach (var accessory in Model.AccessoryList)
+            {
+                <tbody>
+                    <tr>
+                        <th scope="row"><img src="@accessory.Link" width="150" height="150" /></th>
+                        <td>@accessory.Name</td>
+                        <td>@accessory.Color</td>
+                        <td>@accessory.Quantity</td>
+                        <td>
+                            <button type="button" class="btn btn-primary align-middle mt-5">
+                                <a asp-page="/Details/AccessoryDetail" asp-route-Model="@accessory.Name" asp-route-Color="@accessory.Color">
+                                    Modifica
+                                </a>
+                            </button>
+                        </td>
 
-                            <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-                                <div class="media-body order-2 order-lg-5 offset-1">
-
-                                    <div class="elementi-tabella col-lg-7">
-                                        2
-
-                                        <div class="col-lg-9 offset-2">
-
-                                            <h5 class="col-md-2 offset-2 ">@accessory.Name</h5>
-                                            <h5 class="col-lg-12 offset-2 font-uppercase">@accessory.Color</h5>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-lg-5 offset-1">
-                                        <h5 class="col-lg-12 ">Codice articolo</h5>
-                                        <h5 class="col-md-2 font-uppercase">0000001</h5>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <h5 class="col-md-2 offset-5">Modello</h5>
-                                        <h5 class="col-md-2 offset-5 font-uppercase">modello</h5>
-                                    </div>
-
-                                    <div class="col-md-3 offset-2">
-                                        <h5 class="col-md-2 offset-5">Quantità</h5>
-                                        <h5 class="col-md-2 offset-5 font-uppercase">numero</h5>
-                                    </div>
-
-                                    <div class="offset-4">
-
-                                        <div class="btn-disponibilita " id="disponibile">
-                                            <p>Disponibile <i class="fas fa-check-circle p-2" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:2px"></i></p>
-                                        </div>
-
-                                        <div class="btn-indisponibilita" id="non-disponibile">
-                                            <p>Non disponibile @*<i class="fas fa-check-circle" style=" padding-left:10px;font-size:25px;color:white;vertical-align:middle;padding-top:10px"></i>*@</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <!-- End -->
-                        </li>
-                    </ul>
-                </div>
-            </div>
-             }
-        </div>
-    </body>
-    </html>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</body>
+</html>

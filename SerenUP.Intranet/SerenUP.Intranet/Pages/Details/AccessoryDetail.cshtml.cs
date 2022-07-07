@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace SerenUP.Intranet.Pages
 {
-    public class ProductDetailModel : PageModel
+    public class AccessoryDetailModel : PageModel
     {
         public void OnGet()
         {
