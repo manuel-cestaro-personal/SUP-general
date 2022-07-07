@@ -1,0 +1,22 @@
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["SerenUP.Intranet/SerenUP.Intranet.csproj", "SerenUP.Intranet/"]
+COPY ["SerenUP.Services/SerenUP.Services.csproj", "SerenUP.Services/"]
+COPY ["SerenUP.Infrastructure/SerenUP.Infrastructure.csproj", "SerenUP.Infrastructure/"]
+COPY ["SerenUP.ApplicationCore/SerenUP.ApplicationCore.csproj", "SerenUP.ApplicationCore/"]
+RUN dotnet restore "SerenUP.Intranet/SerenUP.Intranet.csproj"
+COPY . .
+WORKDIR "/src/SerenUP.Intranet"
+RUN dotnet build "SerenUP.Intranet.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "SerenUP.Intranet.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "SerenUP.Intranet.dll"]

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SerenUP.ApplicationCore.Entities;
 using SerenUP.Services.Interfaces;
 
-namespace SerenUP.ShopAPI.Controllers
+namespace SerenUP.ShopAPI.Controllers { 
 
     [Route("api/[controller]")]
     [ApiController]
