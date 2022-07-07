@@ -29,8 +29,8 @@ body {
     /*width: 300px;
     
     left: 200px;
-    top: 200px;*/
-    background: #F0F0F0;
+    top: 200p -colorx;*/
+    background-color: white;
     border-radius: 50px;
     margin-top: 30px;
     display: block;
@@ -43,7 +43,8 @@ body {
         position: absolute;
     
         /* background: rgba(235, 235, 225, 0.25); */
-        background-color: #EBEBE166;
+        /*background-color: #EBEBE166;*/
+        background-color:purple;
         border-radius: 50px;
         height: 61%;
         width: 30%;
@@ -75,6 +76,7 @@ body {
     text-transform: uppercase;
     font-size: 20px;
     font-weight:500;
+    color:white;
 }
 .form {
     align-content: center;
@@ -111,6 +113,10 @@ body {
 
 .barra-sopra {
     background: url(../Immagini/Logo.png);
+}
+
+.label-remember {
+    padding-top:15px;
 }
 
 /*Personalizzazione pagina LOGIN - FINE*/
@@ -206,12 +212,18 @@ button:not(:disabled) {
 .list-group-item {
     /*background-color: #EBEBE140;*/
 }
+
+ a.col-md-1.nav-link.text-dark {
+        display: contents;
+    }
 /*Personalizzazione pagina LISTA PRODOTTI - FINE*/
 
 /*Personalizzazione pagina DETTAGLIO PRODOTTO - INIZIO*/
 
 li, ul {
     list-style-type: none;
+
+
     /*Personalizzazione pagina DETTAGLIO PRODOTTO - FINE*/
 }
 
@@ -227,5 +239,10 @@ li, ul {
     text-decoration: underline;
     text-align:center;
 }
+
+ .descrizione-label {
+     margin-left:6.3%;
+     width:47%;
+ }
 
 }
