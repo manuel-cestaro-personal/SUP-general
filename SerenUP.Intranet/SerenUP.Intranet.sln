@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerenUP.Infrastructure", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerenUP.Services", "SerenUP.Services\SerenUP.Services.csproj", "{5B765416-BF1D-4DEA-8415-2D3309D624A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerenUP.ShopAPI", "SerenUP.ShopAPI\SerenUP.ShopAPI.csproj", "{ADC345B0-B7A7-41A1-910F-D3D8ECCA5386}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerenUP.ShopAPI", "SerenUP.ShopAPI\SerenUP.ShopAPI.csproj", "{ADC345B0-B7A7-41A1-910F-D3D8ECCA5386}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
