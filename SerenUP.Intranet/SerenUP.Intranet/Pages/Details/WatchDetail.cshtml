@@ -1,0 +1,34 @@
+﻿@page "{name}/{color}"
+@model SerenUP.Intranet.Pages.WatchDetailModel
+@{
+}
+
+
+<div>
+    <div>
+        <span>
+            <div style="display:inline">
+                <a asp-page="Details/WatchDetail">
+                    <img class="icon_details" src=@Model.Link>
+                </a>
+            </div>
+        </span>
+        <span>
+            <div class="text_details" style="display:inline">
+                <table style="display:inline; margin-bottom:100px; border:1px">
+                    <tr>
+                        <td>
+                            <button class="td_cart">
+                                <a asp-page="">
+                                    <h5>Orologio @Model.Watch.Model</h5>
+                                    <h5>Colore: @Model.Watch.Color</h5>
+                                    <h5>@Model.Watch.Price €</h5>
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </span>
+    </div>
+</div>
