@@ -13,6 +13,7 @@ namespace SerenUP.ApplicationCore.Entities
         public Guid ActivationKey { get; set; }
         public string Color { get; set; }
         public bool WatchStatus { get; set; }
+        public string? Link { get; set; }
 
     }
 }
