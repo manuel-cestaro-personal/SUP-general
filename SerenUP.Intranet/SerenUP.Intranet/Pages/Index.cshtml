@@ -1,11 +1,37 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Scegli la sezione";
 }
+<html>
+<head>
+</head>
+<body>
+               <div class="row mt-5 container">
+             <div class="col md-4">
+                <button type="button" class=" text-dark btn  btn-sm mt-2" >
+                   <img class="icone-accesso" src="~/Image/administrator_4960.png" />
+                   <p class=" text-center align-middle font-weight-bold" >AMMINISTRAZIONE</p>
+                </button>
+              </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<!-- ciao -->
+
+<div class="col md-4 ">
+
+                 <button type="button" class=" text-dark btn  btn-sm mt-2" >
+                <img class="icone-accesso" src="~/Image/backoffice.png" />
+                 <p class=" text-center align-middle font-weight-bold ">BACK OFFICE</p>
+            </button>
+            </div>
+
+<div class="col md-4  mt-5">
+                <button type="button" class=" text-dark btn  btn-sm mt-2" >
+                    <img class="icone-accesso" id="icona-magazzino" src="~/Image/magazzino.png" />
+                 <p class=" text-center align-middle font-weight-bold">MAGAZZINO</p> 
+            </button>
+            </div>
+
+            
+    </div>
+</body>
+</html>
