@@ -1,53 +1,16 @@
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
 body {
-    margin-bottom: 60px;
+    margin: 0;
+    text-align:center;
 }
-
-
-@media(min-width: 600px) {
-    .logo {
-        width: 200px;
-        height: 200px;
-        margin-left: 25%;
-    }
 
     .credenziali-username,
     .credenziali-password {
-        background: #F0F0F0;
+        background-color: white;
         border-radius: 50px;
-        margin-top: 30px;
+        margin-top: 10px;
         display: block;
         width: 100%;
         height: 50px;
-        margin-left: 10px;
-    }
-
-    .riquadro {
-        position: absolute;
-        bottom: 108px;
-        background-color: #EBEBE166;
-        border-radius: 50px;
-        height: 61%;
-        width: 30%;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: space-around;
-        flex-wrap: nowrap;
     }
 
     .container-info {
@@ -63,7 +26,16 @@ body {
         text-transform: uppercase;
         font-size: 20px;
         font-weight: 500;
+        color: black;
     }
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    height: 20%;
+
+}
 
     .form {
         align-content: center;
@@ -82,15 +54,13 @@ body {
         font-size: 25px;
     }
 
-    .btn-input {
-        background-color: #f0f0f0;
-        font-size: 20px;
-        text-align: center;
-        border-radius: 10px;
-        padding: 0px 20px;
-        color: white;
-        font-weight: 600;
-    }
+.btn-input {
+    background-color: #e2a751;
+    font-size: 25px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+}
 
     .container-btn-input {
         text-align: center;
@@ -99,6 +69,10 @@ body {
 
     .barra-sopra {
         background: url(../Immagini/Logo.png);
+    }
+
+    .label-remember {
+        padding-top: 15px;
     }
 
     /*Personalizzazione pagina LOGIN - FINE*/
@@ -114,16 +88,10 @@ body {
         display: inline-block;
     }
 
-    .font-uppercase {
-    }
 
-    .btn-input {
-        background-color: #e2a751;
+    btn-input:hover {
+        background-color: darkorange;
     }
-
-        .btn-input:hover {
-            background-color: darkorange;
-        }
 
     [type=button]:not(:disabled),
     [type=reset]:not(:disabled),
@@ -149,12 +117,11 @@ body {
         padding-right: 6px;
     }
 
-
-        .btn-disponibilita p,
-        .btn-indisponibilita p {
-            display: flex;
-            vertical-align: middle;
-        }
+    .btn-disponibilita p,
+    .btn-indisponibilita p {
+        display: flex;
+        vertical-align: middle;
+    }
 
     .btn-indisponibilita {
         left: 1107px;
@@ -175,6 +142,9 @@ body {
         margin-top: -61px;
     }
 
+    a.col-md-1.nav-link.text-dark {
+        display: contents;
+    }
     /*Personalizzazione pagina LISTA PRODOTTI - FINE*/
 
     /*Personalizzazione pagina DETTAGLIO PRODOTTO - INIZIO*/
@@ -183,21 +153,18 @@ body {
         list-style-type: none;
     }
 
-    .row > .col-md-4 offset-2 riquadro {
-        margin-left: 20%;
-    }
-
-    .row {
-        margin-top: 10%;
-    }
-
     #forgot-password {
         color: #0d6efd;
         text-decoration: underline;
         text-align: center;
     }
-    a{
+
+    .descrizione-label {
+        margin-left: 6.3%;
+        width: 47%;
+    }
+
+    a {
         color: white;
         text-decoration: none
     }
-}
