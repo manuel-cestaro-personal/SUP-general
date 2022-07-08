@@ -3,42 +3,8 @@
 @{
 }
 
-@*
-<div>
-
-    <div>
-
-            <div style="display:inline">
-                <a asp-page="Details/WatchDetail">
-                    <img class="icon_details" src=@Model.Link>
-                </a>
-            </div>
-
-
-            <div class="text_details" style="display:inline">
-                <table style="display:inline; margin-bottom:100px; border:1px">
-                    <tr>
-                        <td>
-                            <button class="td_cart">
-                                <a asp-page="">
-                                    <h5>Orologio @Model.Watch.Model</h5>
-                                    <h5>Colore: @Model.Watch.Color</h5>
-                                    <h5>@Model.Watch.Price €</h5>
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-    </div>
-
-</div>
-*@
-
 <center>
-<form  class="row g-3 w-25">
+<form  class="row g-3 w-25" method="PUT">
 
     <div>
          <a asp-page="Details/WatchDetail">
@@ -46,17 +12,48 @@
          </a>
     </div>
     
-        <label class="form-label" >Model:</label>
-        <input type="text" class="form-control" value="@Model.Watch.Model" />
-    
-        <label class="form-label">Price:</label>
-        <input type="text" class="form-control" value="@Model.Watch.Price" />
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <label class="form-label" >Model:</label>
+            </div>
+              <div class="col">
+                  <input type="text" class="form-control" value="@Model.Watch.Model" />
+            </div>
+        </div>
 
-        <label class="form-label">Color:</label>
-        <input type="text" class="form-control" value="@Model.Watch.Color" />
-     
-        <button type="submit" class="btn btn-primary mb-3">Update</button>
-    
+         <div class="row">
+            <div class="col">
+                <label class="form-label" >Price:</label>
+            </div>
+              <div class="col">
+                  <input type="text" class="form-control" value="@Model.Watch.Price" />
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col">
+                <label class="form-label" >Color:</label>
+            </div>
+              <div class="col">
+                  <input type="text" class="form-control" value="@Model.Watch.Color" />
+            </div>
+        </div>
+          
+         <div class="row">
+             <div class="col">
+                <button type="submit" class="btn btn-primary mb-3">
+                     <a asp-page="../ProductList">
+                                    Return
+                     </a>
+                </button>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary mb-3">Update</button>
+            </div>
+        </div>
+       
+    </div>
 </form>
 </center>
 
