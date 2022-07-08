@@ -1,0 +1,36 @@
+version: "3.7"
+
+secrets:
+  MSSQL_SA_PWD:
+    file: ./.secrets/mssql_sa_pwd.txt
+
+
+services:
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql
+    restart: unless-stopped
+    user: root
+    environment:
+      MSSQL_SA_PASSWORD_FILE: /run/secrets/MSSQL_SA_PWD
+      ACCEPT_EULA: Y
+      MSSQL_PID: "Express"
+    ports:
+      - 1433:1433
+    secrets:
+      - MSSQL_SA_PWD
+    volumes:
+      - ../mssql-volume/data:/var/opt/mssql/data
+      - ../mssql-volume/log:/var/opt/mssql/log
+      - ../mssql-volume/secrets:/var/opt/mssql/secrets
+    networks:
+      dockernetwork:
+        ipv4_address: 172.18.0.102
+
+networks:
+  dockernetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/16"
