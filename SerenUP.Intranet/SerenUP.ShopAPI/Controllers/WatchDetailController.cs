@@ -172,6 +172,35 @@ namespace SerenUP.ShopAPI.Controllers
             }
         }
 
+        [HttpPut("UpdateWatchDetail")]
+
+        public async Task<IActionResult> UpdateWatchDetail(Watch model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState); // 400
+                }
+                else
+                {
+                    await _watchService.UpdateWatchDetail(model);
+                }
+                return Ok(new
+                {
+                    Result = true
+                }); // 200
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Result = false,
+                    ErrorMessage = ex.Message
+                });
+            }
+        }
+
 
         [HttpGet("WatchActivate {id}/{activationKey}")]
         public async Task<IActionResult> WatchActivate(Guid id, Guid activationKey)
