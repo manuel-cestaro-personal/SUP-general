@@ -4,7 +4,7 @@
 }
 
 <center>
-<form  class="row g-3 w-25" method="PUT">
+<form  class="row g-3 w-25" method="POST">
 
     <div style="width:200px;">
          <a asp-page="Details/WatchDetail">
@@ -18,7 +18,7 @@
                 <label class="form-label" >Model:</label>
             </div>
               <div class="col">
-                  <input type="text" class="form-control" value="@Model.Watch.Model" />
+                  <input type="text" class="form-control" value="@Model.Watch.Model" name="Model" />
             </div>
         </div>
 
@@ -27,7 +27,7 @@
                 <label class="form-label" >Price:</label>
             </div>
               <div class="col">
-                  <input type="text" class="form-control" value="@Model.Watch.Price" />
+                  <input type="text" class="form-control" value="@Model.Watch.Price" name="Price" />
             </div>
         </div>
 
@@ -36,18 +36,19 @@
                 <label class="form-label" >Color:</label>
             </div>
               <div class="col">
-                  <input type="text" class="form-control" value="@Model.Watch.Color" />
+                  <input type="text" class="form-control" value="@Model.Watch.Color" name="Color"/>
             </div>
         </div>
-          
-         <div class="row">
+
+        <div class="row">
              <div class="col">
                 <button type="submit" class="btn btn-primary mb-3  mt-3">
                      <a asp-page="../ProductList">
                                     Return
                      </a>
                 </button>
-            </div>
+            </div>  
+
             <div class="col">
                 <button type="submit" class="btn btn-primary mb-3  mt-3">Update</button>
             </div>

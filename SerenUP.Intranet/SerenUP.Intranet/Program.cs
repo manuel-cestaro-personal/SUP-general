@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SerenUP.ApplicationCore.Interfaces;
+using SerenUP.Infrastructure.Data;
 using SerenUP.Intranet.Data;
 using SerenUP.Services.Interfaces;
 using SerenUP.Services.Services;
@@ -24,6 +26,8 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
     .AddDefaultUI()
     .AddDefaultTokenProviders(); ;
 
+builder.Services.AddSingleton<IWatchService, WatchService>();
+builder.Services.AddSingleton<IWatchRepository, WatchRepository>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
