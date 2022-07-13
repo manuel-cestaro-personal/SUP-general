@@ -83,6 +83,21 @@ WHERE WatchId = @Id";
             await connection.ExecuteAsync(query, new {Id = id, Status = status});
 
         }
+
+        public async Task UpdateWatchDetail(Watch model)
+        {
+            const string query = @"
+UPDATE Watch 
+SET Model = @Model,
+    Price = @Price,
+    Color = @Color
+WHERE WatchId = @Id";
+
+            using var connection = new SqlConnection(_connectionstring);
+            await connection.ExecuteAsync(query, new { Id = model.WatchId, Model = model.Model, Price = model.Price, Color = model.Color});
+
+        }
+
         public Task Delete(Guid id)
         {
             throw new NotImplementedException();

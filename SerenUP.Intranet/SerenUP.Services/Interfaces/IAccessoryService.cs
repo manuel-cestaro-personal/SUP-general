@@ -12,7 +12,7 @@ namespace SerenUP.Services.Interfaces
         Task<IEnumerable<Accessory>> GetAllAccessory();
         Task<Accessory> GetAccessory(string name, string color);
         Task InsertAccessory(Accessory name);
-        Task UpdateAccessory(Guid id, int quantity);
+        Task UpdateAccessory(Accessory model);
         
     }
 }

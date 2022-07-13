@@ -14,6 +14,7 @@ namespace SerenUP.ApplicationCore.Interfaces
         Task<Watch> GetById(Guid id);
         Task Insert(Watch model);
         Task Update(Guid id, bool status);
+        Task UpdateWatchDetail(Watch model);
         Task Delete(Guid id);
 
         Task<IEnumerable<Watch>> WatchActivate(Guid id, Guid activationKey);

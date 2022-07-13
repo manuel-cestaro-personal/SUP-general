@@ -3,35 +3,58 @@
 @{
 }
 
+<center>
+<form  class="row g-3 w-25" method="POST">
 
-<div>
-
-    <div>
-
-            <div style="display:inline">
-                <a asp-page="Details/WatchDetail">
-                    <img class="icon_details" src=@Model.Link>
-                </a>
-            </div>
-
-
-            <div class="text_details" style="display:inline">
-                <table style="display:inline; margin-bottom:100px; border:1px">
-                    <tr>
-                        <td>
-                            <button class="td_cart">
-                                <a asp-page="">
-                                    <h5>Orologio @Model.Watch.Model</h5>
-                                    <h5>Colore: @Model.Watch.Color</h5>
-                                    <h5>@Model.Watch.Price €</h5>
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
+    <div style="width:200px;">
+         <a asp-page="Details/WatchDetail">
+            <img style="width:100%;" class="icon_details" src=@Model.Link>
+         </a>
     </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <label class="form-label" >Model:</label>
+            </div>
+              <div class="col">
+                  <input type="text" class="form-control" value="@Model.Watch.Model" name="Model" />
+            </div>
+        </div>
 
-</div>
+         <div class="row">
+            <div class="col">
+                <label class="form-label" >Price:</label>
+            </div>
+              <div class="col">
+                  <input type="text" class="form-control" value="@Model.Watch.Price" name="Price" />
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col">
+                <label class="form-label" >Color:</label>
+            </div>
+              <div class="col">
+                  <input type="text" class="form-control" value="@Model.Watch.Color" name="Color"/>
+            </div>
+        </div>
+
+        <div class="row">
+             <div class="col">
+                <button type="submit" class="btn btn-primary mb-3  mt-3">
+                     <a asp-page="../ProductList">
+                                    Return
+                     </a>
+                </button>
+            </div>  
+
+            <div class="col">
+                <button type="submit" class="btn btn-primary mb-3  mt-3">Update</button>
+            </div>
+        </div>
+       
+    </div>
+</form>
+</center>
+

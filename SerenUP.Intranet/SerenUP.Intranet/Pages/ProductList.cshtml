@@ -5,7 +5,6 @@
 }
 <html>
 <body>
-    <h1 class="">@ViewData["Title"]</h1>
 
     <div class="container">
 
@@ -54,7 +53,7 @@
                         <td>@accessory.Quantity</td>
                         <td>
                             <button type="button" class="btn btn-primary align-middle mt-5">
-                                <a asp-page="/Details/AccessoryDetail" asp-route-Model="@accessory.Name" asp-route-Color="@accessory.Color" >
+                                <a asp-page="/Details/AccessoryDetail" asp-route-Name="@accessory.Name" asp-route-Color="@accessory.Color" >
                                     Modifica
                                 </a>
                             </button>

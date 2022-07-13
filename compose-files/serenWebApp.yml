@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+
+  webapp:
+    image: serenup.webapp:v1.0
+    container_name: webapp
+    restart: unless-stopped
+    ports:
+      - 8081:80
+    networks:
+      dockernetwork:
+        ipv4_address: 172.18.0.105
+
+networks:
+  dockernetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/16"

@@ -38,6 +38,11 @@ namespace SerenUP.Services.Services
             await _watchRepository.Update(id, status);
         }
 
+        public async Task UpdateWatchDetail(Watch model)
+        {
+            await _watchRepository.UpdateWatchDetail(model);
+        }
+
         public async Task<IEnumerable<Watch>> WatchActivate(Guid id, Guid activationKey)
         {
             return await _watchRepository.WatchActivate(id, activationKey);
